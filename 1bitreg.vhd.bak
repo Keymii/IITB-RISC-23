@@ -1,0 +1,31 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity r_1bit is 
+    port(
+      wr: in std_logic;
+		clock: in std_logic;
+		D: in std_logic;
+		reset: in std_logic;
+		output: out std_logic
+		);
+end reg1;
+
+architecture bhv of reg1 is
+begin
+process(wr, clock, D)
+begin
+if rising_edge(clock) then
+  if wr='1' then
+    output <= D;
+  else
+    null;
+  end if;
+  if reset='1' then
+	 output<='0';
+  end if;
+else
+  null;
+end if;
+end process;
+end bhv;

@@ -1,6 +1,9 @@
+library std;
 library ieee;
+use std.standard.all;
 use ieee.std_logic_1164.all;
-use IEEE.numeric_std.all;
+use ieee.numeric_std.all; 
+
 entity DataMemory is
   port (addr: IN STD_LOGIC_VECTOR(15 downto 0);
         din: IN STD_LOGIC_VECTOR(15 downto 0);

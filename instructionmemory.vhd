@@ -12,7 +12,7 @@ entity imem is
 		  imem_d: out std_logic_vector(15 downto 0));
 end entity;
 
- architecture  of imem is 
+ architecture struct of imem is 
 type arr is array(50 downto 0) of std_logic_vector(15 downto 0);
 signal Memory: arr:=(others=>"0000000000000000");
 
@@ -25,4 +25,4 @@ process (clk,imem_a)
 		end if;
 		
 end process;
-end architecture struct;
+end struct;

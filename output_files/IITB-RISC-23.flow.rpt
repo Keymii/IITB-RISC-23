@@ -1,5 +1,5 @@
 Flow report for IITB-RISC-23
-Mon May 01 04:32:20 2023
+Tue May 02 01:11:09 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Flow Failed - Mon May 01 04:32:20 2023      ;
+; Flow Status                        ; Flow Failed - Tue May 02 01:11:09 2023      ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; IITB-RISC-23                                ;
 ; Top-level Entity Name              ; IITB-RISC-23                                ;
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/01/2023 04:32:05 ;
+; Start date & time ; 05/02/2023 01:10:55 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; IITB-RISC-23        ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 1098360815292.168289572536716          ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 1098360815292.168297005437684          ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -102,8 +102,8 @@ https://fpgasoftware.intel.com/eula.
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Elaboration ; 00:00:16     ; 1.0                     ; 4776 MB             ; 00:00:19                           ;
-; Total                  ; 00:00:16     ; --                      ; --                  ; 00:00:19                           ;
+; Analysis & Elaboration ; 00:00:15     ; 1.0                     ; 4778 MB             ; 00:00:16                           ;
+; Total                  ; 00:00:15     ; --                      ; --                  ; 00:00:16                           ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

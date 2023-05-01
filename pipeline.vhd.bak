@@ -1,0 +1,62 @@
+library std;
+library ieee;
+use std.standard.all;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all; 
+
+entity if_id is
+	port(
+			clock,wr_ifid,resetifid : in std_logic;
+			ifidinc, ifidpc, ifidimem : in std_logic_vector(15 downto 0);
+			ifidincout, ifidpcout, ifidimemout : out std_logic_vector(15 downto 0);
+			);
+end if_id;
+
+architecture a1 of if_id is
+
+component r_1bit is
+    port(
+		clock,reset,wr,D: in std_logic;
+		output: out std_logic
+		);
+end component;
+
+component r_3bit is
+port(
+		clock,reset,wr: in std_logic;
+		D: in std_logic_vector(2 downto 0);
+		output: out std_logic_vector(2 downto 0)
+		);
+end component;
+
+component r_4bit is
+port(
+		clock,reset,wr: in std_logic;
+		D: in std_logic_vector(3 downto 0);
+		output: out std_logic_vector(3 downto 0)
+		);
+end component;
+
+component r_6bit is
+port(
+		clock,reset,wr: in std_logic;
+		D: in std_logic_vector(5 downto 0);
+		output: out std_logic_vector(5 downto 0)
+		);
+end component;
+
+component r_9bit is
+port(
+		clock,reset,wr: in std_logic;
+		D: in std_logic_vector(8 downto 0);
+		output: out std_logic_vector(8 downto 0)
+		);
+end component;
+
+component reg is
+port(
+		clock,reset,wr: in std_logic;
+		D: in std_logic_vector(15 downto 0);
+		output: out std_logic_vector(15 downto 0)
+		);
+end component;
