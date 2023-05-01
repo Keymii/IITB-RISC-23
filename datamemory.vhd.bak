@@ -15,7 +15,12 @@ end DataMemory;
 architecture behave of DataMemory is
 type mem_array is array	(0	to 2**7 -1) of
 	std_logic_vector(15 downto 0);
-signal RAM : mem_array :=(others=>"0000000000000000");
+signal RAM : mem_array :=
+  (
+  
+
+  ) ;
+
 begin
 process(clk)
 	begin

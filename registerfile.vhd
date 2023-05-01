@@ -25,7 +25,7 @@ begin
 				rf_signal(to_integer(unsigned(A3)))<=D3;
 			end if;
 			if pc_wr='1' then
-				rf_signal(7)<=pc_in;
+				rf_signal(0)<=pc_in;
 			end if;
 			if reset='1' then
 				rf_signal<=(others=>"0000000000000000");
@@ -35,6 +35,6 @@ begin
 
 D1<=rf_signal(to_integer(unsigned(A1)));
 D2<=rf_signal(to_integer(unsigned(A2)));
-pc_out<=rf_signal(7);
+pc_out<=rf_signal(0);
 
 end struct;
