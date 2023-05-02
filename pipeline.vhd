@@ -8,7 +8,7 @@ entity if_id is
 	port(
 			clock,wrifid,resetifid : in std_logic;
 			ifidinc, ifidpc, ifidimem : in std_logic_vector(15 downto 0);
-			ifidincout, ifidpcout, ifidimemout : out std_logic_vector(15 downto 0);
+			ifidincout, ifidpcout, ifidimemout : out std_logic_vector(15 downto 0)
 			);
 end if_id;
 
@@ -82,14 +82,15 @@ entity id_rr is
 		clock,resetidrr,wridrr : in std_logic;
 		idrropcode : in std_logic_vector(3 downto 0);
       idrrpc, idrrinc : in std_logic_vector(15 downto 0);
-		idrr11_9, idrr8_6, idrr5_3 : in std_logic_vector(2 downto 0);
+		
 		idrr8_0 : in std_logic_vector(8 downto 0);
+		idrr11_9, idrr8_6, idrr5_3 : in std_logic_vector(2 downto 0);
 		idrr5_0 : in std_logic_vector(5 downto 0);
-		idrropcodeout : out std_logic_vector(3 downto 0);
-		idrrpcout, idrrincout : out std_logic_vector(15 downto 0);
 		idrr11_9out, idrr8_6out, idrr5_3out : out std_logic_vector(2 downto 0);
+		idrropcodeout : out std_logic_vector(3 downto 0);
 		idrr8_0out : out std_logic_vector(8 downto 0);
-		idrr5_0out : out std_logic_vector(5 downto 0);
+		idrrpcout, idrrincout : out std_logic_vector(15 downto 0);
+	   idrr5_0out : out std_logic_vector(5 downto 0)
 		);
 end id_rr;
 
@@ -147,11 +148,11 @@ begin
 pc: reg port map (clock,resetidrr,wridrr,idrrpc,idrrpcout);
 inc: reg port map (clock,resetidrr,wridrr,idrrinc,idrrincout);
 opcode: r_4bit port map (clock,resetidrr,wridrr,idrrinc,idrrincout);
-eleven_nine: reg3 port map (clock,resetidrr,wridrr ,idrr11_9, idrr11_9out);
-eight_six: reg3 port map (clock, resetidrr,idrr8_6, idrr8_6out);
-five_three: reg3 port map (clock, resetidrr, idrr5_3, idrr5_3out);
-eight_zero: reg9 port map (clock, resetidrr, idrr8_0, idrr8_0out);
-five_zero: reg6 port map (clock, resetidrr, idrr5_0, idrr5_0out);
+eleven_nine: r_3bit port map (clock,resetidrr,wridrr ,idrr11_9, idrr11_9out);
+eight_six: r_3bit port map (clock, resetidrr,idrr8_6, idrr8_6out);
+five_three: r_3bit port map (clock, resetidrr, idrr5_3, idrr5_3out);
+eight_zero: r_9bit port map (clock, resetidrr, idrr8_0, idrr8_0out);
+five_zero: r_6bit port map (clock, resetidrr, idrr5_0, idrr5_0out);
 
 end a2;
 ---------------------------------
@@ -173,13 +174,12 @@ entity rr_ex is
 		rrexinc_Op, rrexpc_Op, rrexrfd1_Op, rrexlmsm_Op, rrexrfd2_Op : out std_logic_vector(15 downto 0);
 		rrex11_9_Op, rrex8_6_Op, rrex5_3_Op, rrexdec_Op : out std_logic_vector(2 downto 0);
 		rrex8_0_Op : out std_logic_vector(8 downto 0);
-		rrex5_0_Op : out std_logic_vector(5 downto 0);
-		rrexindexout_Op : out integer;
-		rrexmatch_Op : out std_logic
+		rrex5_0_Op : out std_logic_vector(5 downto 0)
+		
 		);
 end rr_ex;
 
-architecture arch of rr_ex is
+architecture a3 of rr_ex is
 
 	component r_1bit is
     port(
@@ -230,22 +230,21 @@ end component;
 		
 begin
 
-opcode: reg4 port map (clock, resetrrex, wrrrex, rrexopcode, rrexopcode_Op);
+opcode: r_4bit port map (clock, resetrrex, wrrrex, rrexopcode, rrexopcode_Op);
 inc: reg port map (clock, resetrrex, wrrrex, rrexinc, rrexinc_Op);
 PC: reg port map (clock, resetrrex, wrrrex,rrexpc, rrexpc_Op);
 RF_D1: reg port map (clock, resetrrex, wrrrex, rrexrfd1, rrexrfd1_Op);
 LMSM: reg port map (clock, resetrrex, wrrrex, rrexlmsm, rrexoplmsm_Op);
 RF_D2: reg port map (clock, resetrrex, wrrrex, rrexrfd2, rrexrfd2_Op);
-dec: reg3 port map (clock, resetrrex, wrrrex, rrexdec, rrexdec_Op);
-eleven_nine: reg3 port map (clock, resetrrex, wrrrex, rrex11_9, rrex11_9_Op);
-eight_six: reg3 port map (clock, resetrrex, wrrrex, rrex8_6, rrex8_6_Op);
-five_three: reg3 port map (clock, resetrrex, wrrrex, rrex5_3, rrex5_3_Op);
-eight_zero: reg9 port map (clock, resetrrex, wrrrex, rrex8_0, rrex8_0_Op);
-five_zero: reg6 port map (clock, resetrrex, wrrrex, rrex5_0, rrex5_0_Op);
-match: reg1 port map (clock, resetrrex, wrrrex, rrexmatch, rrexmatch_Op);
-indexout: reg1_int port map (clock, resetrrex, wrrrex, rrexindexout, rrexindexout_Op);
+dec: r_3bit port map (clock, resetrrex, wrrrex, rrexdec, rrexdec_Op);
+eleven_nine: r_3bit port map (clock, resetrrex, wrrrex, rrex11_9, rrex11_9_Op);
+eight_six: r_3bit port map (clock, resetrrex, wrrrex, rrex8_6, rrex8_6_Op);
+five_three: r_3bit port map (clock, resetrrex, wrrrex, rrex5_3, rrex5_3_Op);
+eight_zero: r_9bit port map (clock, resetrrex, wrrrex, rrex8_0, rrex8_0_Op);
+five_zero: r_6bit port map (clock, resetrrex, wrrrex, rrex5_0, rrex5_0_Op);
 
-end arch;
+
+end a3;
 
 ---------------------------------------------------------------
  library std;
@@ -270,7 +269,7 @@ entity ex_ma is
 		exma11_9out, exma8_6out, exma5_3out, exma_dec_Op : out std_logic_vector(2 downto 0);
 		exma8_0_Op : out std_logic_vector(8 downto 0);
 		exma5_0_Op : out std_logic_vector(5 downto 0);
-		exma_cout, exma_zout : out std_logic;
+		exma_cout, exma_zout : out std_logic
 		
 		);
 end ex_ma;
@@ -326,7 +325,7 @@ end component;
 
 begin
 
----baaaki hai
+
 
 
 

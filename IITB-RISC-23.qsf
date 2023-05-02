@@ -70,3 +70,4 @@ set_global_assignment -name VHDL_FILE 6bitreg.vhd
 set_global_assignment -name VHDL_FILE 9bitreg.vhd
 set_global_assignment -name VHDL_FILE reg.vhd
 set_global_assignment -name VHDL_FILE pipeline.vhd
+set_global_assignment -name VHDL_FILE muxes.vhd
