@@ -54,5 +54,5 @@ begin
 	
 	rf : register_file port map(A1=>,A2=>,A3=>,D1=>,D2=>,D3=>,wr_en=> ,pc_wr=>pc_wr,pc_in=>pc_inc,pc_out=>pc_old,clock=>clk,reset=>reset);
 	subCircuit_IF : subCircuit_IF port map(clk=>clk,reset=>reset,pc_read=>pc_old,pc_write=>pc_inc,pc_wr=>pc_wr,IR=>instr_IF);
-	reg_ifid : master_reg generic map(regsize=>) port map(clock=>clk, reset=>reset, wr=>,inp=>,outp=>)
+	reg_ifid : master_reg generic map(regsize=>) port map(clock=>clk, reset=>reset, wr=>,inp=>,outp=>);
 end struct;

@@ -74,3 +74,4 @@ set_global_assignment -name VHDL_FILE pipeline.vhd
 set_global_assignment -name VHDL_FILE muxes.vhd
 set_global_assignment -name VHDL_FILE uProcessor.vhd
 set_global_assignment -name VHDL_FILE subCircuit_IF.vhd
+set_global_assignment -name VHDL_FILE subCircuit_ID.vhd

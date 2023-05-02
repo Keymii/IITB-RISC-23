@@ -14,7 +14,8 @@ generic (
     );
 
     port(
-		clock,reset,wr,inp: in std_logic (regsize-1 downto 0);
+		clock,reset,wr: in std_logic;
+		inp: in std_logic (regsize-1 downto 0);
 		outp: out std_logic (regsize-1 downto 0)
 		);
 end master_reg;
