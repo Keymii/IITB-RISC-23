@@ -39,6 +39,14 @@ architecture struct of uProcessor is
 			IR: out std_logic_vector(15 downto 0);
 		);
 	end component subCircuit_IF;
+	component master_reg is 
+		generic (regsize : integer := 16;);
+		port(
+			clock,reset,wr: in std_logic;
+			inp: in std_logic (regsize-1 downto 0);
+			outp: out std_logic (regsize-1 downto 0)
+		);
+	end component master_reg;
 	
 	signal pc_wr : std_logic :='0';
 	signal pc_old,pc_inc,instr_IF : std_logic_vector(15 downto 0):= (others=>'0') --pc_old is the curr instr pc, pc_inc is (prolly) incremented PC
@@ -46,5 +54,5 @@ begin
 	
 	rf : register_file port map(A1=>,A2=>,A3=>,D1=>,D2=>,D3=>,wr_en=> ,pc_wr=>pc_wr,pc_in=>pc_inc,pc_out=>pc_old,clock=>clk,reset=>reset);
 	subCircuit_IF : subCircuit_IF port map(clk=>clk,reset=>reset,pc_read=>pc_old,pc_write=>pc_inc,pc_wr=>pc_wr,IR=>instr_IF);
-	
+	reg_ifid : master_reg generic map(regsize=>) port map(clock=>clk, reset=>reset, wr=>,inp=>,outp=>)
 end struct;
