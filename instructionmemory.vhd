@@ -20,7 +20,7 @@ begin
 process (clk,imem_a)
   
  begin
-		if falling_edge(clk) then
+		if rising_edge(clk) then
 				imem_d<=Memory(to_integer(unsigned(imem_a)));
 		end if;
 		

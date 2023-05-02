@@ -1,0 +1,30 @@
+library std;
+library ieee;
+use std.standard.all;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all; 
+
+entity subCircuit_IF is
+	port(
+		clk: in std_logic;
+		pc_read: in std_logic_vector(15 downto 0);
+		pc_write: out std_logic_vector(15 downto 0);
+		pc_wr:out std_logic;
+		
+	);
+end subCircuit_IF;
+architecture a1 of subCircuit_IF is 
+
+	component imem is 
+		port (imem_a: in std_logic_vector(15 downto 0); 
+			  clk: in std_logic;
+			  imem_d: out std_logic_vector(15 downto 0));
+	end entity;
+	
+begin
+	P:process(clk)
+	begin
+		if rising_edge(clk) then
+			
+	end process;
+end a1;
