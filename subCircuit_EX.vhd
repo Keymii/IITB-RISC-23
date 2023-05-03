@@ -21,8 +21,8 @@ architecture behav of subCircuit_EX is
 begin
 process(instr)
 begin
-signal bit17,s1,s3,s4,s5,s8,s10,s11 : std_logic_vector(16 downto 0);
-signal s2,s6,s7,s9 : std_logic_vector(15 downto 0);
+signal bit17,s1,s3,s4,s5,s8,s10,s11,s12 : std_logic_vector(16 downto 0);
+signal s2,s6,s7,s9,mem_add : std_logic_vector(15 downto 0);
 
      case instr(15 downto 12) is
 	       when "0001" => --ADD
@@ -110,9 +110,15 @@ signal s2,s6,s7,s9 : std_logic_vector(15 downto 0);
 
 
 	       when "0100" => --LW
-
+							s6<="00000000000"& imm_6;
+							s12<=std_logic_vector(to_unsigned(to_integer(unsigned(data_reg2))+(to_integer(unsigned(s6))),bit17'length));
+							mem_add<=s12(15 down to 0);		
+						
 	       when "0101" => --SW
-
+							s6<="00000000000"& imm_6;
+							s12<=std_logic_vector(to_unsigned(to_integer(unsigned(data_reg2))+(to_integer(unsigned(s6))),bit17'length));
+							mem_add<=s12(15 down to 0);		
+	
 							
 	       when "1000" => --BEQ
 					if data_reg1=data_reg2 then
