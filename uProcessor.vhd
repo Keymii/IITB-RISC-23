@@ -141,6 +141,35 @@ begin
 		inp(57)=>c_write_rr,
 		inp(58)=>mem_Write_rr,
 		);
+	
+	--more ports to come
+	reg_rrex:master_reg generic map(regsize=>59) port map(clock=>clk, reset=>reset, wr=>'1',
+		inp(15 downto 0)=>instr_RR,
+		inp(31 downto 16)=>pc_inc_rr,
+		inp(47 downto 32)=>pc_old_rr,
+		inp(48)=>reg_write_rr,
+		inp(51 downto 49)=>reg_write_add_rr,
+		inp(52)=>reg_read_1_rr,
+		inp(53)=>reg_read_2_rr,
+		inp(54)=>read_c_rr,
+		inp(55)=>read_z_rr,
+		inp(56)=>z_write_rr,
+		inp(57)=>c_write_rr,
+		inp(58)=>mem_Write_rr,
+		
+		outp(15 downto 0)=>instr_EX,
+		outp(31 downto 16)=>pc_inc_ex,
+		outp(47 downto 32)=>pc_old_ex,
+		inp(48)=>reg_write_ex,
+		inp(51 downto 49)=>reg_write_add_ex,
+		inp(52)=>reg_read_1_ex,
+		inp(53)=>reg_read_2_ex,
+		inp(54)=>read_c_ex,
+		inp(55)=>read_z_ex,
+		inp(56)=>z_write_ex,
+		inp(57)=>c_write_ex,
+		inp(58)=>mem_Write_ex,
+		);
 
 		
 end struct;

@@ -29,7 +29,7 @@ begin
 	P:process(clk, reset)
 	begin
 		if rising_edge(clk) then
-			if (instr(15 downto 14) /= "10") and (instr(15 downto 12) /= "11") then
+			if (instr(15 downto 14) /= "10") and (instr(15 downto 14) /= "11") then
 				pc_wr <='1';
 				pc_write <= std_logic_vector(to_unsigned(to_integer(unsigned(pc_read))+2,pc_write'length));
 			else
