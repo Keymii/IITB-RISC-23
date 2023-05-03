@@ -76,3 +76,6 @@ set_global_assignment -name VHDL_FILE uProcessor.vhd
 set_global_assignment -name VHDL_FILE subCircuit_IF.vhd
 set_global_assignment -name VHDL_FILE subCircuit_ID.vhd
 set_global_assignment -name VHDL_FILE subCircuit_RR.vhd
+set_global_assignment -name VHDL_FILE subCircuit_EX.vhd
+set_global_assignment -name VHDL_FILE subCircuit_MA.vhd
+set_global_assignment -name VHDL_FILE subCircuit_WB.vhd

@@ -64,19 +64,68 @@ architecture struct of uProcessor is
 			outp: out std_logic (regsize-1 downto 0)
 		);
 	end component master_reg;
-	
-	signal pc_wr,reg_write_id,reg_read_1_id,reg_read_2_id,read_c_id,read_z_id,z_write_id,c_write_id,mem_Write_id,reg_write_rr,reg_read_1_rr,reg_read_2_rr,read_c_rr,read_z_rr,z_write_rr,c_write_rr,mem_Write_rr : std_logic :='0';
-	signal pc_old_if,pc_inc_if,instr_IF, pc_old_id,pc_inc_id,instr_ID, pc_old_rr,pc_inc_rr,instr_rr: std_logic_vector(15 downto 0):= (others=>'0') --pc_old_if is the curr instr pc, pc_inc_if is (prolly) incremented PC
+	component subCircuit_RR is
+	  port ( instr: in std_logic_vector(15 downto 0);
+
+				reg_read_1: in STD_LOGIC;
+				reg_read_2: in STD_LOGIC;
+				
+				rf_a1,rf_a2:out std_logic_vector(2 downto 0);
+				rf_d1,rf_d2:in std_logic_vector(15 downto 0);
+				data_reg1, data_reg2 :out std_logic_vector(15 downto 0)
+		 );
+	end component subCircuit_RR;
+	signal 
+		pc_wr,
+		reg_write_id,
+		reg_read_1_id,
+		reg_read_2_id,
+		read_c_id,
+		read_z_id,
+		z_write_id,
+		c_write_id,
+		mem_Write_id,
+		
+		reg_write_rr,
+		reg_read_1_rr,
+		reg_read_2_rr,
+		read_c_rr,
+		read_z_rr,
+		z_write_rr,
+		c_write_rr,
+		mem_Write_rr,
+		reg1_rr,
+		reg2_rr,
+		
+		reg_write_ex,
+		reg_read_1_ex,
+		reg_read_2_ex,
+		read_c_ex,
+		read_z_ex,
+		z_write_ex,
+		c_write_ex,
+		mem_Write_ex,
+		reg1_ex,
+		reg2_ex, : std_logic :='0';
+		
+	signal 
+		rf_d1,rf_d2,rf_d3, 
+		pc_old_if,pc_inc_if,instr_IF, --pc_old_if is the curr instr pc, pc_inc_if is (prolly) incremented PC
+		pc_old_id,pc_inc_id,instr_ID, 
+		pc_old_rr,pc_inc_rr,instr_RR,
+		pc_old_ex,pc_inc_ex,instr_EX: std_logic_vector(15 downto 0):= (others=>'0') 
+		
 	signal reg_write_add_id : std_logic_vector(2 downto 0) := "001";
+	signal rf_a1,rf_a2,rf_a3:std_logic_vector(2 downto 0):="000";
 begin
 	
 	rf : register_file port map(
-		A1=>,
-		A2=>,
-		A3=>,
-		D1=>,
-		D2=>,
-		D3=>,
+		A1=>rf_a1,
+		A2=>rf_a2,
+		A3=>rf_a3,
+		D1=>rf_d1,
+		D2=>rf_d2,
+		D3=>rf_d3,
 		wr_en=> ,
 		pc_wr=>pc_wr,
 		pc_in=>pc_inc_if,
@@ -142,8 +191,19 @@ begin
 		inp(58)=>mem_Write_rr,
 		);
 	
-	--more ports to come
-	reg_rrex:master_reg generic map(regsize=>59) port map(clock=>clk, reset=>reset, wr=>'1',
+	subCircuit_RR : subCircuit_RR port map(
+		instr=>instr_RR,
+		reg_read_1=>reg_read_1_rr,
+		reg_read_2=>reg_read_2_rr,
+		
+		rf_a1=>rf_a1,
+		rf_a2=>rf_a2,
+		rf_d1=>rf_d1,
+		rf_d2=>rf_d2,
+		data_reg1=>reg1_rr, 
+		data_reg2=>reg2_rr
+	); 	
+	reg_rrex:master_reg generic map(regsize=>91) port map(clock=>clk, reset=>reset, wr=>'1',
 		inp(15 downto 0)=>instr_RR,
 		inp(31 downto 16)=>pc_inc_rr,
 		inp(47 downto 32)=>pc_old_rr,
@@ -156,19 +216,23 @@ begin
 		inp(56)=>z_write_rr,
 		inp(57)=>c_write_rr,
 		inp(58)=>mem_Write_rr,
+		inp(74 downto 59)=>reg1_rr,
+		inp(90 downto 75)=>reg2_rr,
 		
 		outp(15 downto 0)=>instr_EX,
 		outp(31 downto 16)=>pc_inc_ex,
 		outp(47 downto 32)=>pc_old_ex,
-		inp(48)=>reg_write_ex,
-		inp(51 downto 49)=>reg_write_add_ex,
-		inp(52)=>reg_read_1_ex,
-		inp(53)=>reg_read_2_ex,
-		inp(54)=>read_c_ex,
-		inp(55)=>read_z_ex,
-		inp(56)=>z_write_ex,
-		inp(57)=>c_write_ex,
-		inp(58)=>mem_Write_ex,
+		outp(48)=>reg_write_ex,
+		outp(51 downto 49)=>reg_write_add_ex,
+		outp(52)=>reg_read_1_ex,
+		outp(53)=>reg_read_2_ex,
+		outp(54)=>read_c_ex,
+		outp(55)=>read_z_ex,
+		outp(56)=>z_write_ex,
+		outp(57)=>c_write_ex,
+		outp(58)=>mem_Write_ex,
+		outp(74 downto 59)=>reg1_ex,
+		outp(90 downto 75)=>reg2_ex,
 		);
 
 		
