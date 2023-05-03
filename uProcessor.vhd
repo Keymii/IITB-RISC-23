@@ -49,10 +49,10 @@ architecture struct of uProcessor is
 	end component master_reg;
 	
 	signal pc_wr : std_logic :='0';
-	signal pc_old,pc_inc,instr_IF : std_logic_vector(15 downto 0):= (others=>'0') --pc_old is the curr instr pc, pc_inc is (prolly) incremented PC
+	signal pc_old_if,pc_inc_if,instr_IF, pc_old_id,pc_inc_id,instr_ID : std_logic_vector(15 downto 0):= (others=>'0') --pc_old_if is the curr instr pc, pc_inc_if is (prolly) incremented PC
 begin
 	
-	rf : register_file port map(A1=>,A2=>,A3=>,D1=>,D2=>,D3=>,wr_en=> ,pc_wr=>pc_wr,pc_in=>pc_inc,pc_out=>pc_old,clock=>clk,reset=>reset);
-	subCircuit_IF : subCircuit_IF port map(clk=>clk,reset=>reset,pc_read=>pc_old,pc_write=>pc_inc,pc_wr=>pc_wr,IR=>instr_IF);
-	reg_ifid : master_reg generic map(regsize=>) port map(clock=>clk, reset=>reset, wr=>,inp=>,outp=>);
+	rf : register_file port map(A1=>,A2=>,A3=>,D1=>,D2=>,D3=>,wr_en=> ,pc_wr=>pc_wr,pc_in=>pc_inc_if,pc_out=>pc_old_if,clock=>clk,reset=>reset);
+	subCircuit_IF : subCircuit_IF port map(clk=>clk,reset=>reset,pc_read=>pc_old_if,pc_write=>pc_inc_if,pc_wr=>pc_wr,IR=>instr_IF);
+	reg_ifid : master_reg generic map(regsize=>) port map(clock=>clk, reset=>reset, wr=>'1',inp(15 downto 0)=>instr_IF,inp(31 downto 16)=>pc_inc_if,inp(47 downto 32)=>pc_old_if,outp(15 downto 0)=>instr_ID,outp(31 downto 16)=>pc_inc_id,outp(47 downto 32)=>pc_old_id, );
 end struct;
