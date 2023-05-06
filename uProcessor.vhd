@@ -92,6 +92,21 @@ architecture struct of uProcessor is
 		 );
 		 
 	end component subCircuit_MA;
+	
+	component subCircuit_WB is
+	 port (
+			clk,reset : in std_logic;
+			reg_write: in std_logic;
+			
+			D3_in : out std_logic_vector(15 downto 0);
+		 reg_write_add: OUT STD_LOGIC_VECTOR(2 downto 0);
+		 A3 : out std_logic_vector(2 downto 0);
+		 D3_out : out std_logic_vector(15 downto 0)
+	 
+		);
+	end component subCircuit_WB;
+	
+	
 	component r_1bit is 
 		 port(
 			clock,reset,wr,D: in std_logic;
@@ -132,7 +147,7 @@ architecture struct of uProcessor is
 		reg1_ex,
 		reg2_ex,
 		c_data_in_ex,c_data_out_ex,
-		z_data_in_ex,z_data_out_ex
+		z_data_in_ex,z_data_out_ex,
 
 		
 		reg_write_ma,
@@ -153,8 +168,8 @@ architecture struct of uProcessor is
 		pc_old_if,pc_inc_if,instr_IF, --pc_old_if is the curr instr pc, pc_inc_if is (prolly) incremented PC
 		pc_old_id,pc_inc_id,instr_ID, 
 		pc_old_rr,pc_inc_rr,instr_RR,
-		pc_old_ex,pc_inc_ex,instr_EX, ex_out_ex
-		pc_old_ma,pc_inc_ma,instr_MA,
+		pc_old_ex,pc_inc_ex,instr_EX, ex_out_ex, pc_out_ex,
+		pc_old_ma,pc_inc_ma,instr_MA, ex_out_ma, pc_out_ma, d_in_ma, d_out_ma,
 		pc_old_wb,pc_inc_wb,instr_WB,
 
 		addr_ma: std_logic_vector(15 downto 0):= (others=>'0') 
@@ -310,9 +325,9 @@ begin
 		c_out=>c_data_out_ex,
 		z_out=>z_data_out_ex,
 		ex_out=>ex_out_ex,
-		pc_out=>
+		pc_out=>pc_out_ex
 	);
-	reg_exma:master_reg generic map(regsize=>91) port map(clock=>clk, reset=>reset, wr=>'1',
+	reg_exma:master_reg generic map(regsize=>125) port map(clock=>clk, reset=>reset, wr=>'1',
 		inp(15 downto 0)=>instr_EX,
 		inp(31 downto 16)=>pc_inc_ex,
 		inp(47 downto 32)=>pc_old_ex,
@@ -329,6 +344,8 @@ begin
 		inp(90 downto 75)=>reg2_ex,
 		inp(91)=>c_data_out_ex,
 		inp(92)=>z_data_out_ex,
+		inp(108 downto 93)=>ex_out_ex,
+		inp(124 downto 109)=>pc_out_ex,
 		
 		outp(15 downto 0)=>instr_MA,
 		outp(31 downto 16)=>pc_inc_ma,
@@ -346,30 +363,84 @@ begin
 		outp(90 downto 75)=>reg2_ma,
 		outp(91)=>c_data_out_ma,
 		outp(92)=>z_data_out_ma
+		outp(108 downto 93)=>ex_out_ma,
+		outp(124 downto 109)=>pc_out_ma,
 	);
 	case instr_MA(15 downto 12) is
-		when "0100" | "0101"=> --lw|sw
+		when "0100" => --lw
 			addr_ma<=ex_out_ex;
-		when "0110"=>
+			
+		when "0101"=> --sw
+			addr_ma<=ex_out_ex;
+			d_in_ma<=reg1_ma
+			
+		when "0110"=>--lm
+			addr_ma<=reg1_ma;
+			
+		when "0111"=>--sm
+			addr_ma<=reg2_ma;
+			d_in_ma<=reg1_ma;A
+			
+		when others=>
+			addr_ma<=(others=>'0');
+			
 	end case;
+	
 	subCircuitMA:subCircuit_MA port map( 
 		instr=>instr_MA,
-		addr=>, 
-		d_in=>,
+		addr=>addr_ma,
+		d_in=>d_in_ma,
 		clk=>clk,
 		reset=>reset,
 		mem_wr=>mem_Write_ma,
-		d_out=>,
+		d_out=>d_out_ma,
 		rf_wr_in=>reg_write_ma,
 		rf_wr_add_in=>reg_write_add_ma,
 		rf_wr_out=>reg_write_ma_out,
 		rf_wr_add_out=>reg_write_add_ma_out
-				
-		 );
+	);
 	
-	reg_mawb:
-	
+	reg_mawb:master_reg generic map(regsize=>125) port map(clock=>clk, reset=>reset, wr=>'1',
+		inp(15 downto 0)=>instr_MA,
+		inp(31 downto 16)=>pc_inc_ma,
+		inp(47 downto 32)=>pc_old_ma,
+		inp(48)=>reg_write_ma,
+		inp(51 downto 49)=>reg_write_add_ma,
+		inp(52)=>reg_read_1_ma,
+		inp(53)=>reg_read_2_ma,
+		inp(54)=>read_c_ma,
+		inp(55)=>read_z_ma,
+		inp(56)=>z_write_ma,
+		inp(57)=>c_write_ma,
+		inp(58)=>mem_Write_ma,
+		inp(74 downto 59)=>reg1_ma,
+		inp(90 downto 75)=>reg2_ma,
+		inp(91)=>c_data_out_ma,
+		inp(92)=>z_data_out_ma,
+		inp(108 downto 93)=>ex_out_ma,
+		inp(124 downto 109)=>pc_out_ma,
+		
+		outp(15 downto 0)=>instr_WB,
+		outp(31 downto 16)=>pc_inc_wb,
+		outp(47 downto 32)=>pc_old_wb,
+		outp(48)=>reg_write_wb,
+		outp(51 downto 49)=>reg_write_add_wb,
+		outp(52)=>reg_read_1_wb,
+		outp(53)=>reg_read_2_wb,
+		outp(54)=>read_c_wb,
+		outp(55)=>read_z_wb,
+		outp(56)=>z_write_wb,
+		outp(57)=>c_write_wb,
+		outp(58)=>mem_Write_wb,
+		outp(74 downto 59)=>reg1_wb,
+		outp(90 downto 75)=>reg2_wb,
+		outp(91)=>c_data_out_wb,
+		outp(92)=>z_data_out_wb,
+		outp(108 downto 93)=>ex_out_wb,
+		outp(124 downto 109)=>pc_out_wb,
+	);
+		--incomplete
 	subCircuitWB:
-
+		--incomplete
 		
 end struct;
