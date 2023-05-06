@@ -81,3 +81,4 @@ set_global_assignment -name VHDL_FILE subCircuit_MA.vhd
 set_global_assignment -name VHDL_FILE subCircuit_WB.vhd
 set_global_assignment -name VHDL_FILE DUT.vhd
 set_global_assignment -name VHDL_FILE Testbench.vhdl
+set_global_assignment -name VHDL_FILE "Hazard R0 Condition.vhd"
