@@ -20,15 +20,6 @@ architecture struct of uProcessor is
 			);
 	end component register_file;
 	
-	component DataMemory is
-	  port (addr: IN STD_LOGIC_VECTOR(15 downto 0);
-			  din: IN STD_LOGIC_VECTOR(15 downto 0);
-				 we: IN STD_LOGIC;
-			  clk: IN STD_LOGIC;
-
-			  dout: OUT STD_LOGIC_VECTOR(15 downto 0)
-			  );
-	end component DataMemory;
 	
 	component subCircuit_IF is
 		port(
@@ -114,7 +105,7 @@ architecture struct of uProcessor is
 		pc_old_id,pc_inc_id,instr_ID, 
 		pc_old_rr,pc_inc_rr,instr_RR,
 		pc_old_ex,pc_inc_ex,instr_EX: std_logic_vector(15 downto 0):= (others=>'0') 
-		
+
 	signal reg_write_add_id : std_logic_vector(2 downto 0) := "001";
 	signal rf_a1,rf_a2,rf_a3:std_logic_vector(2 downto 0):="000";
 begin
