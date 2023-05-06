@@ -22,7 +22,7 @@ architecture behav of subCircuit_MA is
 				  rf_wr_in: IN STD_LOGIC;
 				  rf_wr_add_in:IN STD_LOGIC_VECTOR(2 downto 0);
 				  rf_wr_out:OUT STD_LOGIC;
-				  rf_wr_add_out:OUT STD_LOGIC_VECTOR(2 downto 0);
+				  rf_wr_add_out:OUT STD_LOGIC_VECTOR(2 downto 0)
 				  );
 		end component DataMemory;
 	signal data_wr,data_rd,m_addr:std_logic_vector(15 downto 0):=(others=>'0');
@@ -34,10 +34,11 @@ architecture behav of subCircuit_MA is
 	
 begin
 	ma:process(clk,reset)
-	dataMem : DataMemory port map(addr=>m_addr, din=>data_wr, we=>mem_wr, clk=>clk, dout=>data_rd);
+	begin
+	dataMem : DataMemory port map(addr<=m_addr, din<=data_wr, we<=mem_wr, clk<=clk, dout<=data_rd);
 
 	begin
-		if instr(15 downto 14)="01" 
+		if instr(15 downto 14)="01" then
 			if count = 0 then
 				multi_add:=addr;
 				multi_reg_add:=instr(7 downto 0);
@@ -82,8 +83,7 @@ begin
 					end if;
 					
 			end case;
-			
 		end if;
 	end process;
 		
-end behav;
+end behav;

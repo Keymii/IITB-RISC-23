@@ -12,19 +12,16 @@ entity subCircuit_RR is
 			reg_read_2: in STD_LOGIC;
 			rf_a1,rf_a2:out std_logic_vector(2 downto 0);
 			rf_d1,rf_d2:in std_logic_vector(15 downto 0);
-		   data_reg1, data_reg2 :out std_logic_vector(15 downto 0);
-			
-			
+		   data_reg1, data_reg2 :out std_logic_vector(15 downto 0)
     );
 	 
 end subCircuit_RR;
 architecture a3 of subCircuit_RR is
-	signal 
 	shared variable count:integer:=0;
-	shared variable smRegList:=std_logic_vector(7 downto 0);
+	shared variable smRegList:std_logic_vector(7 downto 0);
 
 begin
-	if instr(15 downto 0) = "0111" then
+	if (instr(15 downto 12) = "0111") then
 		--- write code if sm ie, read RA as well as read the registers
 		-- in ID send RA to A2 and get its data and hold it in RR_EX if count =0 or /=0 conditions
 		-- send R7-0 in A1, read, send and loop. MA phase will store automatically
