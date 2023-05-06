@@ -64,7 +64,6 @@ begin
 		mem_wr_out<=mem_wr_in;
 		
 	end if;
-end process;
 end a3;
  
  
