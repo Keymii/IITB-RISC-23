@@ -67,6 +67,25 @@ architecture struct of uProcessor is
 				data_reg1, data_reg2 :out std_logic_vector(15 downto 0)
 		 );
 	end component subCircuit_RR;
+	component subCircuit_EX is
+	  port ( instr: in std_logic_vector(15 downto 0);
+				data_reg1, data_reg2,pc_in :in std_logic_vector(15 downto 0);
+				imm_6:in std_logic_vector(5 down to 0);
+				imm_9:in std_logic_vector(8 down to 0);
+				 clk :in std_logic;
+				c,z:in std_logic_vector;
+				c_out,z_out : out std_logic_vector;
+			 ex_out,pc_out:out std_logic_vector(15 downto 0)
+			 
+		 );
+		 
+	end component subCircuit_EX;
+	component r_1bit is 
+		 port(
+			clock,reset,wr,D: in std_logic;
+			output: out std_logic
+			);
+	end component r_1bit;
 	signal 
 		pc_wr,
 		reg_write_id,
@@ -99,7 +118,7 @@ architecture struct of uProcessor is
 		c_write_ex,
 		mem_Write_ex,
 		reg1_ex,
-		reg2_ex, : std_logic :='0';
+		reg2_ex,c_data_in_ex,c_data_out_ex: std_logic :='0';
 		
 	signal 
 		rf_d1,rf_d2,rf_d3, 
@@ -125,14 +144,14 @@ begin
 		pc_out=>pc_old_if,
 		clock=>clk,
 		reset=>reset
-		);
+	);
 	
 	subCircuit_IF : subCircuit_IF port map(clk=>clk,reset=>reset,
 		pc_read=>pc_old_if,
 		pc_write=>pc_inc_if,
 		pc_wr=>pc_wr,
 		IR=>instr_IF
-		);
+	);
 	
 	reg_ifid : master_reg generic map(regsize=>48) port map(clock=>clk, reset=>reset, wr=>'1',
 		inp(15 downto 0)=>instr_IF,
@@ -141,7 +160,8 @@ begin
 		
 		outp(15 downto 0)=>instr_ID,
 		outp(31 downto 16)=>pc_inc_id,
-		outp(47 downto 32)=>pc_old_id, );
+		outp(47 downto 32)=>pc_old_id
+	);
 	
 	subCircuit_ID : subCircuit_ID port map(clk=>clk,reset=>reset,
 		instr_in=>instr_ID,
@@ -154,7 +174,7 @@ begin
 		z_write=>z_write_id,
 		c_write=>c_write_id,
 		ID_Mem_Write=>mem_Write_id
-		);
+	);
 	
 	reg_idrr : master_reg generic map(regsize=>59) port map(clock=>clk, reset=>reset, wr=>'1',
 		inp(15 downto 0)=>instr_ID,
@@ -182,7 +202,7 @@ begin
 		outp(56)=>z_write_rr,
 		outp(57)=>c_write_rr,
 		outp(58)=>mem_Write_rr_in,
-		);
+	);
 	
 	subCircuit_RR : subCircuit_RR port map(
 		instr=>instr_RR,
@@ -229,8 +249,37 @@ begin
 		outp(58)=>mem_Write_ex,
 		outp(74 downto 59)=>reg1_ex,
 		outp(90 downto 75)=>reg2_ex,
-		);
-	
+	);
+		
+	c_flag:r_1bit port map(
+		clock=>clk,
+		reset=>reset,
+		wr=>c_write_ex,
+		D=>c_data_out_ex,
+		output=>c_data_in_ex,
+	);
+	z_flag:r_1bit port map(
+		clock=>clk,
+		reset=>reset,
+		wr=>z_write_ex,
+		D=>z_data_out_ex,
+		output=>z_data_in_ex,
+	);
+	subCircuit_EX:subCIrcuit_EX port map(
+		instr=>instr_EX,
+		data_reg1,
+		data_reg2,
+		pc_in=>pc_old_ex,
+		imm_6,
+		imm_9,
+		clk=>clk,
+		c=>c_data_in_ex,
+		z=>z_data_in_ex,
+		c_out=>c_data_out_ex,
+		z_out=>z_data_out_ex,
+		ex_out,
+		pc_out
+	);
 
 		
 end struct;

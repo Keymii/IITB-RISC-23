@@ -64,13 +64,6 @@ set_global_assignment -name VHDL_FILE registerfile.vhd
 set_global_assignment -name VHDL_FILE datamemory.vhd
 set_global_assignment -name VHDL_FILE instructionmemory.vhd
 set_global_assignment -name VHDL_FILE 1bitreg.vhd
-set_global_assignment -name VHDL_FILE 3bitreg.vhd
-set_global_assignment -name VHDL_FILE 4bitreg.vhd
-set_global_assignment -name VHDL_FILE 6bitreg.vhd
-set_global_assignment -name VHDL_FILE 9bitreg.vhd
-set_global_assignment -name VHDL_FILE reg.vhd
-set_global_assignment -name VHDL_FILE pipeline.vhd
-set_global_assignment -name VHDL_FILE muxes.vhd
 set_global_assignment -name VHDL_FILE uProcessor.vhd
 set_global_assignment -name VHDL_FILE subCircuit_IF.vhd
 set_global_assignment -name VHDL_FILE subCircuit_ID.vhd
