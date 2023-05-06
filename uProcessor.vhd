@@ -57,7 +57,7 @@ architecture struct of uProcessor is
 	end component master_reg;
 	component subCircuit_RR is
 	  port ( instr: in std_logic_vector(15 downto 0);
-				clock,mem_wr_in: in std_logic;
+				clock,reset,mem_wr_in: in std_logic;
 				mem_wr_out: out std_logic;
 				reg_read_1: in STD_LOGIC;
 				reg_read_2: in STD_LOGIC;
@@ -130,14 +130,34 @@ architecture struct of uProcessor is
 		c_write_ex,
 		mem_Write_ex,
 		reg1_ex,
-		reg2_ex,c_data_in_ex,c_data_out_ex: std_logic :='0';
+		reg2_ex,
+		c_data_in_ex,c_data_out_ex,
+		z_data_in_ex,z_data_out_ex
+
+		
+		reg_write_ma,
+		reg_read_1_ma,
+		reg_read_2_ma,
+		read_c_ma,
+		read_z_ma,
+		z_write_ma,
+		c_write_ma,
+		mem_Write_ma,
+		reg1_ma,
+		reg2_ma,
+		c_data_out_ma,
+		z_data_out_ma: std_logic :='0';
 		
 	signal 
 		rf_d1,rf_d2,rf_d3, 
 		pc_old_if,pc_inc_if,instr_IF, --pc_old_if is the curr instr pc, pc_inc_if is (prolly) incremented PC
 		pc_old_id,pc_inc_id,instr_ID, 
 		pc_old_rr,pc_inc_rr,instr_RR,
-		pc_old_ex,pc_inc_ex,instr_EX: std_logic_vector(15 downto 0):= (others=>'0') 
+		pc_old_ex,pc_inc_ex,instr_EX, ex_out_ex
+		pc_old_ma,pc_inc_ma,instr_MA,
+		pc_old_wb,pc_inc_wb,instr_WB,
+
+		addr_ma: std_logic_vector(15 downto 0):= (others=>'0') 
 
 	signal reg_write_add_id : std_logic_vector(2 downto 0) := "001";
 	signal rf_a1,rf_a2,rf_a3:std_logic_vector(2 downto 0):="000";
@@ -289,7 +309,7 @@ begin
 		z=>z_data_in_ex,
 		c_out=>c_data_out_ex,
 		z_out=>z_data_out_ex,
-		ex_out=>,
+		ex_out=>ex_out_ex,
 		pc_out=>
 	);
 	reg_exma:master_reg generic map(regsize=>91) port map(clock=>clk, reset=>reset, wr=>'1',
@@ -328,7 +348,9 @@ begin
 		outp(92)=>z_data_out_ma
 	);
 	case instr_MA(15 downto 12) is
-		when "0100"=> --lm
+		when "0100" | "0101"=> --lw|sw
+			addr_ma<=ex_out_ex;
+		when "0110"=>
 	end case;
 	subCircuitMA:subCircuit_MA port map( 
 		instr=>instr_MA,
@@ -336,12 +358,12 @@ begin
 		d_in=>,
 		clk=>clk,
 		reset=>reset,
-		mem_wr=>,
+		mem_wr=>mem_Write_ma,
 		d_out=>,
-		rf_wr_in=>,
-		rf_wr_add_in=>,
-		rf_wr_out=>,
-		rf_wr_add_out=>
+		rf_wr_in=>reg_write_ma,
+		rf_wr_add_in=>reg_write_add_ma,
+		rf_wr_out=>reg_write_ma_out,
+		rf_wr_add_out=>reg_write_add_ma_out
 				
 		 );
 	

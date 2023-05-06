@@ -6,7 +6,7 @@ use ieee.numeric_std.all;
 
 entity subCircuit_RR is
   port ( instr: in std_logic_vector(15 downto 0);
-			clock,mem_wr_in: in std_logic;
+			clock,reset,mem_wr_in: in std_logic;
 			mem_wr_out: out std_logic;
 			reg_read_1: in STD_LOGIC;
 			reg_read_2: in STD_LOGIC;
