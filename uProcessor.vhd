@@ -161,7 +161,20 @@ architecture struct of uProcessor is
 		reg1_ma,
 		reg2_ma,
 		c_data_out_ma,
-		z_data_out_ma: std_logic :='0';
+		z_data_out_ma,
+		
+		reg_write_wb,
+		reg_read_1_wb,
+		reg_read_2_wb,
+		read_c_wb,
+		read_z_wb,
+		z_write_wb,
+		c_write_wb,
+		mem_Write_wb,
+		reg1_wb,
+		reg2_wb,
+		c_data_out_wb,
+		z_data_out_wb: std_logic :='0';
 		
 	signal 
 		rf_d1,rf_d2,rf_d3, 
@@ -170,7 +183,7 @@ architecture struct of uProcessor is
 		pc_old_rr,pc_inc_rr,instr_RR,
 		pc_old_ex,pc_inc_ex,instr_EX, ex_out_ex, pc_out_ex,
 		pc_old_ma,pc_inc_ma,instr_MA, ex_out_ma, pc_out_ma, d_in_ma, d_out_ma,
-		pc_old_wb,pc_inc_wb,instr_WB,
+		pc_old_wb,pc_inc_wb,instr_WB, ex_out_wb, pc_out_wb, d_in_wb, d_out_wb,
 
 		addr_ma: std_logic_vector(15 downto 0):= (others=>'0') 
 
