@@ -57,7 +57,8 @@ architecture struct of uProcessor is
 	end component master_reg;
 	component subCircuit_RR is
 	  port ( instr: in std_logic_vector(15 downto 0);
-
+				clock,mem_wr_in: in std_logic;
+				mem_wr_out: out std_logic;
 				reg_read_1: in STD_LOGIC;
 				reg_read_2: in STD_LOGIC;
 				
@@ -85,6 +86,7 @@ architecture struct of uProcessor is
 		z_write_rr,
 		c_write_rr,
 		mem_Write_rr,
+		mem_Write_rr_in,
 		reg1_rr,
 		reg2_rr,
 		
@@ -171,22 +173,25 @@ begin
 		outp(15 downto 0)=>instr_RR,
 		outp(31 downto 16)=>pc_inc_rr,
 		outp(47 downto 32)=>pc_old_rr,
-		inp(48)=>reg_write_rr,
-		inp(51 downto 49)=>reg_write_add_rr,
-		inp(52)=>reg_read_1_rr,
-		inp(53)=>reg_read_2_rr,
-		inp(54)=>read_c_rr,
-		inp(55)=>read_z_rr,
-		inp(56)=>z_write_rr,
-		inp(57)=>c_write_rr,
-		inp(58)=>mem_Write_rr,
+		outp(48)=>reg_write_rr,
+		outp(51 downto 49)=>reg_write_add_rr,
+		outp(52)=>reg_read_1_rr,
+		outp(53)=>reg_read_2_rr,
+		outp(54)=>read_c_rr,
+		outp(55)=>read_z_rr,
+		outp(56)=>z_write_rr,
+		outp(57)=>c_write_rr,
+		outp(58)=>mem_Write_rr_in,
 		);
 	
 	subCircuit_RR : subCircuit_RR port map(
 		instr=>instr_RR,
+		clock=>clk,
+		reset=>reset,
 		reg_read_1=>reg_read_1_rr,
 		reg_read_2=>reg_read_2_rr,
-		
+		mem_wr_in=>mem_Write_rr_in,
+		mem_wr_out=>mem_Write_rr,
 		rf_a1=>rf_a1,
 		rf_a2=>rf_a2,
 		rf_d1=>rf_d1,
@@ -225,6 +230,7 @@ begin
 		outp(74 downto 59)=>reg1_ex,
 		outp(90 downto 75)=>reg2_ex,
 		);
+	
 
 		
 end struct;

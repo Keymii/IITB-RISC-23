@@ -129,7 +129,24 @@ begin
                 
 					 ID_Mem_Write <= '1';
 					 
-					 
+				  when "0110" =>--lm
+					reg_write <= '1';
+					reg_write_add <= "111";
+							reg_read_1 <= '1';
+							reg_read_2 <= '0';
+							read_c <= '0';
+							read_z <= '0';
+					 z_write <='0';
+					 c_write <='0';
+				  when "0111" =>--sm
+					 reg_write <= '0';
+                reg_write_add <= "000";
+								reg_read_1 <= '1';
+								reg_read_2 <= '0';
+								read_c <= '0';
+								read_z <= '0';
+                z_write <='0';
+					 c_write <='0';
 				  when "1000" => --BEQ
                 reg_write <= '0';
                 reg_write_add <= "000";

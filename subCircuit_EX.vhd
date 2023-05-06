@@ -121,9 +121,9 @@ signal s2,s6,s7,s9,mem_add : std_logic_vector(15 downto 0);
 							
 							
 			 when "0110" => --lm
-							NULL;
+							ex_out<=(others=>'0');
 			 when "0111" => --sm
-							Null; --basically, we have to update the reading register's address in every cycle
+							ex_out<=(others=>'0');
 							
 							
 	       when "1000" => --BEQ
@@ -165,6 +165,8 @@ signal s2,s6,s7,s9,mem_add : std_logic_vector(15 downto 0);
 							s9<="0000000"&imm_9;
 							s11<=std_logic_vector(to_unsigned(to_integer(unsigned(data_reg1))+(to_integer(unsigned(s9)))+(to_integer(unsigned(s9)))),bit17'length);
 							pc_out<=s11(15 down to 0);
+			 when others =>
+							Null;
 						
 					
 

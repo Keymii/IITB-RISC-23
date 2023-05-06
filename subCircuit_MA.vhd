@@ -30,7 +30,7 @@ architecture behav of subCircuit_MA is
 	signal rf_wr_add_sig: STD_LOGIC_VECTOR(2 downto 0);
 	shared variable count:integer:=0;
 	shared variable multi_reg_add : std_logic_vector(7 downto 0):=instr(7 downto 0);
-	shared variable multi_addr:std_logic_vector(15 downto 0):=addr;
+	shared variable multi_addr:std_logic_vector(15 downto 0);
 	
 begin
 	ma:process(clk,reset)
@@ -75,18 +75,6 @@ begin
 					
 				when "11"=>--sm
 					if rising_edge(clk) then
---						if instr(count)='1' then
---							m_addr<=multi_addr;
---							data_wr<=d_in;
---							multi_addr := std_logic_vector(to_unsigned(to_integer(unsigned(multi_addr))+2,m_addr'length));
---						end if;
---						rf_wr_out<=rf_wr_in;
---						rf_wr_add_out<=rf_wr_add_in;
---						count:=count+1;
---						if count>=8 then
---							count:=0;
---						end if;
-
 						m_addr<=addr;
 						data_wr<=d_in;
 						rf_wr_out<=rf_wr_in;
