@@ -5,14 +5,30 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity subCircuit_WB is
-  port ( instr: in std_logic_vector(15 downto 0);
-				
-		 
-    );
-	 
-end subCircuit_WB;
-architecture behav of subCircuit_WB is
-
+ port (
+      clk,reset : in std_logic;
+		reg_write: in std_logic
+		
+		D3_in : out std_logic_vector(15 downto 0)
+	 reg_write_add: OUT STD_LOGIC_VECTOR(2 downto 0);
+    A3 : out std_logic_vector(2 downto 0);
+	 D3_out : out std_logic_vector(15 downto 0)
+ 
+   );
+	end entity;
+	
+architecture a5 of subCircuit_WB is
 begin
-
-end behav;
+ process(clk)
+ begin
+  if (reg_write=1) then
+  reg_write_add => A3;
+  D3_in=>D3_out;
+  
+ end if;
+ 
+ end process;
+ end a5;
+ 
+  
+ 
