@@ -8,7 +8,7 @@ entity subCircuit_ID is
 	port(
 		
 		clk,reset : in std_logic;
-		instr_in ; in std_logic_vector(15 downto 0);
+		instr_in : in std_logic_vector(15 downto 0);
 		reg_write: OUT STD_LOGIC;
           reg_write_add: OUT STD_LOGIC_VECTOR(2 downto 0);
 				  reg_read_1: OUT STD_LOGIC;
@@ -48,7 +48,6 @@ begin
                         c_write <='1';
                 
                 
-                end if;
 								ID_Mem_Write <= '0';
 								
 								
@@ -62,7 +61,6 @@ begin
                 z_write <='1';
                 c_write <='1';
                 
-                end if;
 								ID_Mem_Write <= '0';		
 						
 				

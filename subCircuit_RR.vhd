@@ -10,7 +10,6 @@ entity subCircuit_RR is
 			mem_wr_out: out std_logic;
 			reg_read_1: in STD_LOGIC;
 			reg_read_2: in STD_LOGIC;
-			
 			rf_a1,rf_a2:out std_logic_vector(2 downto 0);
 			rf_d1,rf_d2:in std_logic_vector(15 downto 0);
 		   data_reg1, data_reg2 :out std_logic_vector(15 downto 0);
@@ -68,6 +67,7 @@ begin
 		mem_wr_out<=mem_wr_in;
 		
 	end if;
+end process;
 end a3;
  
  

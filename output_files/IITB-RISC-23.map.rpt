@@ -1,5 +1,5 @@
 Analysis & Elaboration report for IITB-RISC-23
-Tue May 02 01:11:09 2023
+Sat May 06 19:05:25 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -37,10 +37,10 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                   ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status      ; Failed - Tue May 02 01:11:09 2023           ;
+; Analysis & Elaboration Status      ; Failed - Sat May 06 19:05:25 2023           ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; IITB-RISC-23                                ;
-; Top-level Entity Name              ; IITB-RISC-23                                ;
+; Top-level Entity Name              ; uProcessor                                  ;
 ; Family                             ; MAX 10                                      ;
 ; Total logic elements               ; N/A until Partition Merge                   ;
 ;     Total combinational functions  ; N/A until Partition Merge                   ;
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M08DAF484C8G     ;                    ;
-; Top-level entity name                                            ; IITB-RISC-23       ; IITB-RISC-23       ;
+; Top-level entity name                                            ; uProcessor         ; IITB-RISC-23       ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -164,35 +164,119 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Tue May 02 01:10:54 2023
+    Info: Processing started: Sat May 06 19:05:10 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off IITB-RISC-23 -c IITB-RISC-23 --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Error (10500): VHDL syntax error at master_register.vhd(14) near text ")";  expecting an identifier, or "constant", or "file", or "signal", or "variable" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/master_register.vhd Line: 14
+Error (10523): Ignored construct master_reg at master_register.vhd(9) due to previous errors File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/master_register.vhd Line: 9
+Info (12021): Found 0 design units, including 0 entities, in source file master_register.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file registerfile.vhd
-    Info (12022): Found design unit 1: register_file-struct File: C:/Users/SHOUNAK DAS/Desktop/IITB-RISC-23/registerfile.vhd Line: 16
-    Info (12023): Found entity 1: register_file File: C:/Users/SHOUNAK DAS/Desktop/IITB-RISC-23/registerfile.vhd Line: 7
+    Info (12022): Found design unit 1: register_file-struct File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/registerfile.vhd Line: 16
+    Info (12023): Found entity 1: register_file File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/registerfile.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file datamemory.vhd
-    Info (12022): Found design unit 1: DataMemory-behave File: C:/Users/SHOUNAK DAS/Desktop/IITB-RISC-23/datamemory.vhd Line: 15
-    Info (12023): Found entity 1: DataMemory File: C:/Users/SHOUNAK DAS/Desktop/IITB-RISC-23/datamemory.vhd Line: 4
+    Info (12022): Found design unit 1: DataMemory-behave File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/datamemory.vhd Line: 18
+    Info (12023): Found entity 1: DataMemory File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/datamemory.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file instructionmemory.vhd
-    Info (12022): Found design unit 1: imem-struct File: C:/Users/SHOUNAK DAS/Desktop/IITB-RISC-23/instructionmemory.vhd Line: 15
-    Info (12023): Found entity 1: imem File: C:/Users/SHOUNAK DAS/Desktop/IITB-RISC-23/instructionmemory.vhd Line: 9
+    Info (12022): Found design unit 1: imem-struct File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/instructionmemory.vhd Line: 15
+    Info (12023): Found entity 1: imem File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/instructionmemory.vhd Line: 9
 Info (12021): Found 2 design units, including 1 entities, in source file 1bitreg.vhd
-    Info (12022): Found design unit 1: r_4bit-bhv File: C:/Users/SHOUNAK DAS/Desktop/IITB-RISC-23/1bitreg.vhd Line: 14
-    Info (12023): Found entity 1: r_1bit File: C:/Users/SHOUNAK DAS/Desktop/IITB-RISC-23/1bitreg.vhd Line: 4
+    Info (12022): Found design unit 1: r_4bit-bhv File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/1bitreg.vhd Line: 14
+    Info (12023): Found entity 1: r_1bit File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/1bitreg.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file 3bitreg.vhd
-    Info (12022): Found design unit 1: r_3bit-bhv File: C:/Users/SHOUNAK DAS/Desktop/IITB-RISC-23/3bitreg.vhd Line: 14
-    Info (12023): Found entity 1: r_3bit File: C:/Users/SHOUNAK DAS/Desktop/IITB-RISC-23/3bitreg.vhd Line: 4
-Critical Warning (12048): Ignored duplicate design unit "r_4bit-bhv" in file 1bitreg.vhd File: C:/Users/SHOUNAK DAS/Desktop/IITB-RISC-23/1bitreg.vhd Line: 14
+    Info (12022): Found design unit 1: r_3bit-bhv File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/3bitreg.vhd Line: 15
+    Info (12023): Found entity 1: r_3bit File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/3bitreg.vhd Line: 7
+Critical Warning (12048): Ignored duplicate design unit "r_4bit-bhv" in file 1bitreg.vhd File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/1bitreg.vhd Line: 14
 Info (12021): Found 2 design units, including 1 entities, in source file 4bitreg.vhd
-    Info (12022): Found design unit 1: r_4bit-bhv File: C:/Users/SHOUNAK DAS/Desktop/IITB-RISC-23/4bitreg.vhd Line: 14
-    Info (12023): Found entity 1: r_4bit File: C:/Users/SHOUNAK DAS/Desktop/IITB-RISC-23/4bitreg.vhd Line: 4
-Error (10621): VHDL Use Clause error at instructionmemory.vhd(24): more than one Use Clause imports a declaration of simple name "unsigned" -- none of the declarations are directly visible File: C:/Users/SHOUNAK DAS/Desktop/IITB-RISC-23/instructionmemory.vhd Line: 24
-Error (10784): HDL error at syn_arit.vhd(26): see declaration for object "unsigned" File: c:/intelfpga_lite/20.1/quartus/libraries/vhdl/synopsys/ieee/syn_arit.vhd Line: 26
-Error (10609): VHDL error at numeric_std_vhdl1993.vhd(65): another match for "unsigned" File: c:/intelfpga_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 65
-Error: Quartus Prime Analysis & Elaboration was unsuccessful. 3 errors, 2 warnings
-    Error: Peak virtual memory: 4778 megabytes
-    Error: Processing ended: Tue May 02 01:11:09 2023
+    Info (12022): Found design unit 1: r_4bit-bhv File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/4bitreg.vhd Line: 15
+    Info (12023): Found entity 1: r_4bit File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/4bitreg.vhd Line: 7
+Error (10396): VHDL syntax error at 6bitreg.vhd(13): name used in construct must match previously specified name "r_6bit" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/6bitreg.vhd Line: 13
+Error (10523): Ignored construct r_6bit at 6bitreg.vhd(7) due to previous errors File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/6bitreg.vhd Line: 7
+Info (12021): Found 0 design units, including 0 entities, in source file 6bitreg.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file 9bitreg.vhd
+    Info (12022): Found design unit 1: r_9bit-bhv File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/9bitreg.vhd Line: 15
+    Info (12023): Found entity 1: r_9bit File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/9bitreg.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file reg.vhd
+    Info (12022): Found design unit 1: reg-bhv File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/reg.vhd Line: 15
+    Info (12023): Found entity 1: reg File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/reg.vhd Line: 7
+Error (10522): VHDL Syntax error at pipeline.vhd(332): experienced unexpected end-of-file ;  expecting "end", or "(", or an identifier, or a concurrent statement File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/pipeline.vhd Line: 332
+Info (12021): Found 0 design units, including 0 entities, in source file pipeline.vhd
+Info (12021): Found 12 design units, including 6 entities, in source file muxes.vhd
+    Info (12022): Found design unit 1: mux_2to1-bhv File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/muxes.vhd Line: 16
+    Info (12022): Found design unit 2: mux_2to1_3bit-bhv1 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/muxes.vhd Line: 48
+    Info (12022): Found design unit 3: mux_4to1-bhv2 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/muxes.vhd Line: 83
+    Info (12022): Found design unit 4: mux_4to1_1bit-bhv3 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/muxes.vhd Line: 123
+    Info (12022): Found design unit 5: mux8to1-equation File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/muxes.vhd Line: 161
+    Info (12022): Found design unit 6: mux8to1_3bit-equation File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/muxes.vhd Line: 206
+    Info (12023): Found entity 1: mux_2to1 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/muxes.vhd Line: 7
+    Info (12023): Found entity 2: mux_2to1_3bit File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/muxes.vhd Line: 39
+    Info (12023): Found entity 3: mux_4to1 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/muxes.vhd Line: 74
+    Info (12023): Found entity 4: mux_4to1_1bit File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/muxes.vhd Line: 114
+    Info (12023): Found entity 5: mux8to1 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/muxes.vhd Line: 148
+    Info (12023): Found entity 6: mux8to1_3bit File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/muxes.vhd Line: 193
+Error (10500): VHDL syntax error at uProcessor.vhd(31) near text ")";  expecting an identifier, or "constant", or "file", or "signal", or "variable" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 31
+Error (10500): VHDL syntax error at uProcessor.vhd(37) near text ";";  expecting ":", or "," File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 37
+Error (10396): VHDL syntax error at uProcessor.vhd(49): name used in construct must match previously specified name "subCircuit_IF" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 49
+Error (10500): VHDL syntax error at uProcessor.vhd(51) near text ")";  expecting an identifier, or "constant", or "file", or "signal", or "variable" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 51
+Error (10500): VHDL syntax error at uProcessor.vhd(100) near text ":";  expecting an identifier File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 100
+Error (10500): VHDL syntax error at uProcessor.vhd(109) near text "signal";  expecting ";" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 109
+Error (10500): VHDL syntax error at uProcessor.vhd(120) near text ",";  expecting "(", or an identifier, or  unary operator File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 120
+Error (10500): VHDL syntax error at uProcessor.vhd(142) near text ")";  expecting "(", or an identifier, or  unary operator File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 142
+Error (10500): VHDL syntax error at uProcessor.vhd(183) near text ")";  expecting "(", or an identifier, or  unary operator File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 183
+Error (10500): VHDL syntax error at uProcessor.vhd(227) near text ")";  expecting "(", or an identifier, or  unary operator File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 227
+Info (12021): Found 0 design units, including 0 entities, in source file uprocessor.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file subcircuit_if.vhd
+    Info (12022): Found design unit 1: subCircuit_IF-a1 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_IF.vhd Line: 16
+    Info (12023): Found entity 1: subCircuit_IF File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_IF.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file subcircuit_id.vhd
+    Info (12022): Found design unit 1: subCircuit_ID-a2 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_ID.vhd Line: 24
+    Info (12023): Found entity 1: subCircuit_ID File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_ID.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file subcircuit_rr.vhd
+    Info (12022): Found design unit 1: subCircuit_RR-a3 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_RR.vhd Line: 17
+    Info (12023): Found entity 1: subCircuit_RR File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_RR.vhd Line: 7
+Error (10500): VHDL syntax error at subCircuit_EX.vhd(289) near text "behav";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_EX.vhd Line: 289
+Info (12021): Found 0 design units, including 0 entities, in source file subcircuit_ex.vhd
+Error (10500): VHDL syntax error at subCircuit_MA.vhd(26) near text ")";  expecting an identifier, or "constant", or "file", or "signal", or "variable" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 26
+Error (10500): VHDL syntax error at subCircuit_MA.vhd(31) near text "shared";  expecting an identifier ("shared" is a reserved keyword), or "constant", or "file", or "signal", or "variable" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 31
+Error (10500): VHDL syntax error at subCircuit_MA.vhd(32) near text "shared";  expecting an identifier ("shared" is a reserved keyword), or "constant", or "file", or "signal", or "variable" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 32
+Error (10500): VHDL syntax error at subCircuit_MA.vhd(33) near text "shared";  expecting an identifier ("shared" is a reserved keyword), or "constant", or "file", or "signal", or "variable" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 33
+Error (10500): VHDL syntax error at subCircuit_MA.vhd(35) near text "begin";  expecting an identifier ("begin" is a reserved keyword), or "constant", or "file", or "signal", or "variable" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 35
+Error (10500): VHDL syntax error at subCircuit_MA.vhd(40) near text "=";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 40
+Error (10500): VHDL syntax error at subCircuit_MA.vhd(43) near text ":=";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 43
+Error (10500): VHDL syntax error at subCircuit_MA.vhd(45) near text "if";  expecting ";", or an identifier ("if" is a reserved keyword), or "architecture" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 45
+Error (10500): VHDL syntax error at subCircuit_MA.vhd(47) near text "case";  expecting "end", or "(", or an identifier ("case" is a reserved keyword), or a concurrent statement File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 47
+Error (10500): VHDL syntax error at subCircuit_MA.vhd(47) near text "is";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 47
+Error (10500): VHDL syntax error at subCircuit_MA.vhd(53) near text "when";  expecting "end", or "(", or an identifier ("when" is a reserved keyword), or a concurrent statement File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 53
+Error (10500): VHDL syntax error at subCircuit_MA.vhd(58) near text "when";  expecting "end", or "(", or an identifier ("when" is a reserved keyword), or a concurrent statement File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 58
+Error (10500): VHDL syntax error at subCircuit_MA.vhd(59) near text "then";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 59
+Error (10500): VHDL syntax error at subCircuit_MA.vhd(60) near text "=";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 60
+Error (10500): VHDL syntax error at subCircuit_MA.vhd(64) near text ":=";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 64
+Error (10500): VHDL syntax error at subCircuit_MA.vhd(65) near text "if";  expecting ";", or an identifier ("if" is a reserved keyword), or "architecture" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 65
+Error (10500): VHDL syntax error at subCircuit_MA.vhd(69) near text ":=";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 69
+Error (10500): VHDL syntax error at subCircuit_MA.vhd(77) near text "then";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 77
+Error (10500): VHDL syntax error at subCircuit_MA.vhd(94) near text "if";  expecting ";", or an identifier ("if" is a reserved keyword), or "architecture" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 94
+Info (12021): Found 0 design units, including 0 entities, in source file subcircuit_ma.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file subcircuit_wb.vhd
+    Info (12022): Found design unit 1: subCircuit_WB-a5 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_WB.vhd Line: 20
+    Info (12023): Found entity 1: subCircuit_WB File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_WB.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file dut.vhd
+    Info (12022): Found design unit 1: DUT-a1 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/DUT.vhd Line: 8
+    Info (12023): Found entity 1: DUT File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/DUT.vhd Line: 3
+Info (12021): Found 2 design units, including 1 entities, in source file testbench.vhdl
+    Info (12022): Found design unit 1: Testbench-bhv File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/Testbench.vhdl Line: 9
+    Info (12023): Found entity 1: Testbench File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/Testbench.vhdl Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file hazard add nand adi.vhd
+    Info (12022): Found design unit 1: hazard1-bhv File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/Hazard ADD NAND ADI.vhd Line: 14
+    Info (12023): Found entity 1: hazard1 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/Hazard ADD NAND ADI.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file hazard lli.vhd
+    Info (12022): Found design unit 1: hazard2-bhv File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/Hazard LLI.vhd Line: 14
+    Info (12023): Found entity 1: hazard2 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/Hazard LLI.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file hazard load.vhd
+    Info (12022): Found design unit 1: hazard3-bhv File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/Hazard Load.vhd Line: 14
+    Info (12023): Found entity 1: hazard3 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/Hazard Load.vhd Line: 8
+Error: Quartus Prime Analysis & Elaboration was unsuccessful. 35 errors, 2 warnings
+    Error: Peak virtual memory: 4769 megabytes
+    Error: Processing ended: Sat May 06 19:05:25 2023
     Error: Elapsed time: 00:00:15
     Error: Total CPU time (on all processors): 00:00:16
 

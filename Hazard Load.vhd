@@ -1,0 +1,26 @@
+library std;
+library ieee;
+use std.standard.all;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all; 
+--Memory Access Stage
+
+entity hazard3 is
+    port (
+        instr_in: in std_logic_vector(15 downto 0);		  
+        haz3: out std_logic
+    ) ;
+end hazard3;
+architecture bhv of hazard3 is
+
+begin
+	process(instr_in)
+	begin
+		if(instr_in(15 down to 12)="0100" 
+			and instr_in(11 down to 9)="000") then --LW R0,_,Imm
+			haz3<='1';
+		else
+			haz3<='0';
+		end if;
+	end process;
+end bhv;
