@@ -1,5 +1,5 @@
 Analysis & Elaboration report for IITB-RISC-23
-Sat May 06 18:39:39 2023
+Sat May 06 18:51:09 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                   ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status      ; Failed - Sat May 06 18:39:39 2023           ;
+; Analysis & Elaboration Status      ; Failed - Sat May 06 18:51:08 2023           ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; IITB-RISC-23                                ;
 ; Top-level Entity Name              ; uProcessor                                  ;
@@ -164,7 +164,7 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sat May 06 18:39:23 2023
+    Info: Processing started: Sat May 06 18:50:54 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off IITB-RISC-23 -c IITB-RISC-23 --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -238,14 +238,10 @@ Info (12021): Found 2 design units, including 1 entities, in source file subcirc
 Info (12021): Found 2 design units, including 1 entities, in source file subcircuit_id.vhd
     Info (12022): Found design unit 1: subCircuit_ID-a2 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_ID.vhd Line: 24
     Info (12023): Found entity 1: subCircuit_ID File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_ID.vhd Line: 7
-Error (10500): VHDL syntax error at subCircuit_RR.vhd(20) near text "if";  expecting "end", or "(", or an identifier ("if" is a reserved keyword), or a concurrent statement File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_RR.vhd Line: 20
-Error (10500): VHDL syntax error at subCircuit_RR.vhd(20) near text "then";  expecting "<=" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_RR.vhd Line: 20
-Error (10500): VHDL syntax error at subCircuit_RR.vhd(23) near text "if";  expecting ";", or an identifier ("if" is a reserved keyword), or "architecture" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_RR.vhd Line: 23
-Error (10500): VHDL syntax error at subCircuit_RR.vhd(25) near text "then";  expecting "<=" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_RR.vhd Line: 25
-Error (10500): VHDL syntax error at subCircuit_RR.vhd(28) near text "if";  expecting ";", or an identifier ("if" is a reserved keyword), or "architecture" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_RR.vhd Line: 28
-Info (12021): Found 0 design units, including 0 entities, in source file subcircuit_rr.vhd
-Error (10500): VHDL syntax error at subCircuit_EX.vhd(24) near text "signal";  expecting "begin", or a declaration statement File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_EX.vhd Line: 24
-Error (10500): VHDL syntax error at subCircuit_EX.vhd(290) near text "behav";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_EX.vhd Line: 290
+Info (12021): Found 2 design units, including 1 entities, in source file subcircuit_rr.vhd
+    Info (12022): Found design unit 1: subCircuit_RR-a3 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_RR.vhd Line: 17
+    Info (12023): Found entity 1: subCircuit_RR File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_RR.vhd Line: 7
+Error (10500): VHDL syntax error at subCircuit_EX.vhd(289) near text "behav";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_EX.vhd Line: 289
 Info (12021): Found 0 design units, including 0 entities, in source file subcircuit_ex.vhd
 Error (10500): VHDL syntax error at subCircuit_MA.vhd(26) near text ")";  expecting an identifier, or "constant", or "file", or "signal", or "variable" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 26
 Error (10500): VHDL syntax error at subCircuit_MA.vhd(31) near text "shared";  expecting an identifier ("shared" is a reserved keyword), or "constant", or "file", or "signal", or "variable" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 31
@@ -285,10 +281,10 @@ Info (12021): Found 2 design units, including 1 entities, in source file hazard 
 Info (12021): Found 2 design units, including 1 entities, in source file hazard load.vhd
     Info (12022): Found design unit 1: hazard3-bhv File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/Hazard Load.vhd Line: 14
     Info (12023): Found entity 1: hazard3 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/Hazard Load.vhd Line: 8
-Error: Quartus Prime Analysis & Elaboration was unsuccessful. 60 errors, 2 warnings
+Error: Quartus Prime Analysis & Elaboration was unsuccessful. 54 errors, 2 warnings
     Error: Peak virtual memory: 4777 megabytes
-    Error: Processing ended: Sat May 06 18:39:39 2023
-    Error: Elapsed time: 00:00:16
+    Error: Processing ended: Sat May 06 18:51:09 2023
+    Error: Elapsed time: 00:00:15
     Error: Total CPU time (on all processors): 00:00:18
 
 

@@ -18,11 +18,11 @@ entity subCircuit_EX is
 	 
 end subCircuit_EX;
 architecture behav of subCircuit_EX is
-
-begin
-process(instr,clk)
 signal bit17,s1,s3,s4,s5,s8,s10,s11,s12 : std_logic_vector(16 downto 0);
 signal s2,s6,s7,s9,mem_add : std_logic_vector(15 downto 0);
+begin
+process(instr,clk)
+
 begin
 
      case instr(15 downto 12) is
@@ -285,6 +285,5 @@ begin
 	end case;					
 					
 end process;
-
 
 end behav;

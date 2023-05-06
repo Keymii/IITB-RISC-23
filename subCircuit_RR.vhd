@@ -17,6 +17,9 @@ end subCircuit_RR;
 architecture a3 of subCircuit_RR is
 
 begin
+P:process(reg_read_1,reg_read_2)
+begin
+
 	if (reg_read_1 = '1') then
 		rf_a1 <= instr(11 downto 9);
 		data_reg1 <= rf_d1;
@@ -26,6 +29,7 @@ begin
 		rf_a2 <= instr(8 downto 6); 
 		data_reg2 <= rf_d2;
 	end if;
+end process;
 end a3;
  
  
