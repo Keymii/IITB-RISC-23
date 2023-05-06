@@ -80,6 +80,18 @@ architecture struct of uProcessor is
 		 );
 		 
 	end component subCircuit_EX;
+	component subCircuit_MA is
+	  port ( instr,addr, d_in : in std_logic_vector(15 downto 0);
+				clk,reset,mem_wr : in std_logic;
+				d_out : out std_logic_vector(15 downto 0) ;
+				rf_wr_in: IN STD_LOGIC;
+				rf_wr_add_in:IN STD_LOGIC_VECTOR(2 downto 0);
+				rf_wr_out:OUT STD_LOGIC;
+				rf_wr_add_out:OUT STD_LOGIC_VECTOR(2 downto 0)
+				
+		 );
+		 
+	end component subCircuit_MA;
 	component r_1bit is 
 		 port(
 			clock,reset,wr,D: in std_logic;
@@ -267,8 +279,8 @@ begin
 	);
 	subCircuit_EX:subCIrcuit_EX port map(
 		instr=>instr_EX,
-		data_reg1,
-		data_reg2,
+		data_reg1=>reg1_ex,
+		data_reg2=>reg2_ex,
 		pc_in=>pc_old_ex,
 		imm_6=>instr_EX(5 downto 0),
 		imm_9=>instr_EX(8 downto 0),
@@ -280,7 +292,62 @@ begin
 		ex_out=>,
 		pc_out=>
 	);
-	reg_exma:
+	reg_exma:master_reg generic map(regsize=>91) port map(clock=>clk, reset=>reset, wr=>'1',
+		inp(15 downto 0)=>instr_EX,
+		inp(31 downto 16)=>pc_inc_ex,
+		inp(47 downto 32)=>pc_old_ex,
+		inp(48)=>reg_write_ex,
+		inp(51 downto 49)=>reg_write_add_ex,
+		inp(52)=>reg_read_1_ex,
+		inp(53)=>reg_read_2_ex,
+		inp(54)=>read_c_ex,
+		inp(55)=>read_z_ex,
+		inp(56)=>z_write_ex,
+		inp(57)=>c_write_ex,
+		inp(58)=>mem_Write_ex,
+		inp(74 downto 59)=>reg1_ex,
+		inp(90 downto 75)=>reg2_ex,
+		inp(91)=>c_data_out_ex,
+		inp(92)=>z_data_out_ex,
+		
+		outp(15 downto 0)=>instr_MA,
+		outp(31 downto 16)=>pc_inc_ma,
+		outp(47 downto 32)=>pc_old_ma,
+		outp(48)=>reg_write_ma,
+		outp(51 downto 49)=>reg_write_add_ma,
+		outp(52)=>reg_read_1_ma,
+		outp(53)=>reg_read_2_ma,
+		outp(54)=>read_c_ma,
+		outp(55)=>read_z_ma,
+		outp(56)=>z_write_ma,
+		outp(57)=>c_write_ma,
+		outp(58)=>mem_Write_ma,
+		outp(74 downto 59)=>reg1_ma,
+		outp(90 downto 75)=>reg2_ma,
+		outp(91)=>c_data_out_ma,
+		outp(92)=>z_data_out_ma
+	);
+	case instr_MA(15 downto 12) is
+		when "0100"=> --lm
+	end case;
+	subCircuitMA:subCircuit_MA port map( 
+		instr=>instr_MA,
+		addr=>, 
+		d_in=>,
+		clk=>clk,
+		reset=>reset,
+		mem_wr=>,
+		d_out=>,
+		rf_wr_in=>,
+		rf_wr_add_in=>,
+		rf_wr_out=>,
+		rf_wr_add_out=>
+				
+		 );
+	
+	reg_mawb:
+	
+	subCircuitWB:
 
 		
 end struct;

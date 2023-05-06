@@ -7,7 +7,11 @@ use ieee.numeric_std.all;
 entity subCircuit_MA is
   port ( instr,addr, d_in : in std_logic_vector(15 downto 0);
 			clk,reset,mem_wr : in std_logic;
-			d_out : out std_logic_vector(15 downto 0) 
+			d_out : out std_logic_vector(15 downto 0) ;
+		   rf_wr_in: IN STD_LOGIC;
+		   rf_wr_add_in:IN STD_LOGIC_VECTOR(2 downto 0);
+		   rf_wr_out:OUT STD_LOGIC;
+		   rf_wr_add_out:OUT STD_LOGIC_VECTOR(2 downto 0)
 			
     );
 	 
@@ -19,10 +23,6 @@ architecture behav of subCircuit_MA is
 				  we: IN STD_LOGIC;
 				  clk: IN STD_LOGIC;
 				  dout: OUT STD_LOGIC_VECTOR(15 downto 0);
-				  rf_wr_in: IN STD_LOGIC;
-				  rf_wr_add_in:IN STD_LOGIC_VECTOR(2 downto 0);
-				  rf_wr_out:OUT STD_LOGIC;
-				  rf_wr_add_out:OUT STD_LOGIC_VECTOR(2 downto 0)
 				  );
 		end component DataMemory;
 	signal data_wr,data_rd,m_addr:std_logic_vector(15 downto 0):=(others=>'0');
