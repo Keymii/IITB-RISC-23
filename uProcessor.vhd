@@ -254,15 +254,15 @@ begin
 	c_flag:r_1bit port map(
 		clock=>clk,
 		reset=>reset,
-		wr=>c_write_ex,
-		D=>c_data_out_ex,
+		wr=>c_write_wb,
+		D=>c_data_out_wb,
 		output=>c_data_in_ex,
 	);
 	z_flag:r_1bit port map(
 		clock=>clk,
 		reset=>reset,
-		wr=>z_write_ex,
-		D=>z_data_out_ex,
+		wr=>z_write_wb,
+		D=>z_data_out_wb,
 		output=>z_data_in_ex,
 	);
 	subCircuit_EX:subCIrcuit_EX port map(
@@ -270,16 +270,17 @@ begin
 		data_reg1,
 		data_reg2,
 		pc_in=>pc_old_ex,
-		imm_6,
-		imm_9,
+		imm_6=>instr_EX(5 downto 0),
+		imm_9=>instr_EX(8 downto 0),
 		clk=>clk,
 		c=>c_data_in_ex,
 		z=>z_data_in_ex,
 		c_out=>c_data_out_ex,
 		z_out=>z_data_out_ex,
-		ex_out,
-		pc_out
+		ex_out=>,
+		pc_out=>
 	);
+	reg_exma:
 
 		
 end struct;
