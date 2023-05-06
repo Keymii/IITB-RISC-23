@@ -1,5 +1,5 @@
 Analysis & Elaboration report for IITB-RISC-23
-Sat May 06 21:30:30 2023
+Sat May 06 23:11:30 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                   ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status      ; Failed - Sat May 06 21:30:30 2023           ;
+; Analysis & Elaboration Status      ; Failed - Sat May 06 23:11:30 2023           ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; IITB-RISC-23                                ;
 ; Top-level Entity Name              ; uProcessor                                  ;
@@ -164,7 +164,7 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sat May 06 21:30:14 2023
+    Info: Processing started: Sat May 06 23:11:05 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off IITB-RISC-23 -c IITB-RISC-23 --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -183,16 +183,8 @@ Info (12021): Found 2 design units, including 1 entities, in source file instruc
 Info (12021): Found 2 design units, including 1 entities, in source file 1bitreg.vhd
     Info (12022): Found design unit 1: r_4bit-bhv File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/1bitreg.vhd Line: 14
     Info (12023): Found entity 1: r_1bit File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/1bitreg.vhd Line: 7
-Error (10500): VHDL syntax error at uProcessor.vhd(31) near text ")";  expecting an identifier, or "constant", or "file", or "signal", or "variable" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 31
-Error (10500): VHDL syntax error at uProcessor.vhd(37) near text ";";  expecting ":", or "," File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 37
-Error (10396): VHDL syntax error at uProcessor.vhd(49): name used in construct must match previously specified name "subCircuit_IF" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 49
-Error (10500): VHDL syntax error at uProcessor.vhd(51) near text ")";  expecting an identifier, or "constant", or "file", or "signal", or "variable" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 51
 Error (10500): VHDL syntax error at uProcessor.vhd(130) near text "signal";  expecting ";" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 130
 Error (10500): VHDL syntax error at uProcessor.vhd(141) near text ",";  expecting "(", or an identifier, or  unary operator File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 141
-Error (10500): VHDL syntax error at uProcessor.vhd(205) near text ")";  expecting "(", or an identifier, or  unary operator File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 205
-Error (10500): VHDL syntax error at uProcessor.vhd(252) near text ")";  expecting "(", or an identifier, or  unary operator File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 252
-Error (10500): VHDL syntax error at uProcessor.vhd(260) near text ")";  expecting "(", or an identifier, or  unary operator File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 260
-Error (10500): VHDL syntax error at uProcessor.vhd(267) near text ")";  expecting "(", or an identifier, or  unary operator File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 267
 Info (12021): Found 0 design units, including 0 entities, in source file uprocessor.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file subcircuit_if.vhd
     Info (12022): Found design unit 1: subCircuit_IF-a1 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_IF.vhd Line: 16
@@ -228,10 +220,10 @@ Info (12021): Found 2 design units, including 1 entities, in source file hazard 
 Info (12021): Found 2 design units, including 1 entities, in source file hazard load.vhd
     Info (12022): Found design unit 1: hazard3-bhv File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/Hazard Load.vhd Line: 14
     Info (12023): Found entity 1: hazard3 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/Hazard Load.vhd Line: 8
-Error: Quartus Prime Analysis & Elaboration was unsuccessful. 19 errors, 1 warning
+Error: Quartus Prime Analysis & Elaboration was unsuccessful. 11 errors, 1 warning
     Error: Peak virtual memory: 4778 megabytes
-    Error: Processing ended: Sat May 06 21:30:30 2023
-    Error: Elapsed time: 00:00:16
-    Error: Total CPU time (on all processors): 00:00:18
+    Error: Processing ended: Sat May 06 23:11:30 2023
+    Error: Elapsed time: 00:00:25
+    Error: Total CPU time (on all processors): 00:00:34
 
 

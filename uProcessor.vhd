@@ -27,14 +27,14 @@ architecture struct of uProcessor is
 			pc_read: in std_logic_vector(15 downto 0);
 			pc_write: out std_logic_vector(15 downto 0);
 			pc_wr:out std_logic;
-			IR: out std_logic_vector(15 downto 0);
+			IR: out std_logic_vector(15 downto 0)
 		);
 	end component subCircuit_IF;
 	component subCircuit_ID is
 		port(
 			
 			clk,reset : in std_logic;
-			instr_in ; in std_logic_vector(15 downto 0);
+			instr_in : in std_logic_vector(15 downto 0);
 			reg_write: OUT STD_LOGIC;
 				 reg_write_add: OUT STD_LOGIC_VECTOR(2 downto 0);
 					  reg_read_1: OUT STD_LOGIC;
@@ -48,7 +48,7 @@ architecture struct of uProcessor is
 		);
 	end component subCircuit_ID;
 	component master_reg is 
-		generic (regsize : integer := 16;);
+		generic (regsize : integer := 16);
 		port(
 			clock,reset,wr: in std_logic;
 			inp: in std_logic (regsize-1 downto 0);
@@ -201,7 +201,7 @@ begin
 		outp(55)=>read_z_rr,
 		outp(56)=>z_write_rr,
 		outp(57)=>c_write_rr,
-		outp(58)=>mem_Write_rr_in,
+		outp(58)=>mem_Write_rr_in
 	);
 	
 	subCircuit_RR : subCircuit_RR port map(
@@ -248,7 +248,7 @@ begin
 		outp(57)=>c_write_ex,
 		outp(58)=>mem_Write_ex,
 		outp(74 downto 59)=>reg1_ex,
-		outp(90 downto 75)=>reg2_ex,
+		outp(90 downto 75)=>reg2_ex
 	);
 		
 	c_flag:r_1bit port map(
@@ -256,14 +256,14 @@ begin
 		reset=>reset,
 		wr=>c_write_ex,
 		D=>c_data_out_ex,
-		output=>c_data_in_ex,
+		output=>c_data_in_ex
 	);
 	z_flag:r_1bit port map(
 		clock=>clk,
 		reset=>reset,
 		wr=>z_write_ex,
 		D=>z_data_out_ex,
-		output=>z_data_in_ex,
+		output=>z_data_in_ex
 	);
 	subCircuit_EX:subCIrcuit_EX port map(
 		instr=>instr_EX,

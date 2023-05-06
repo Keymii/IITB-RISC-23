@@ -224,12 +224,12 @@ begin
 							s6<="00000000000"& imm_6;
 							s12<=std_logic_vector(to_unsigned(to_integer(unsigned(data_reg2))+(to_integer(unsigned(s6))),bit17'length));
 							mem_add<=s12(15 down to 0);		
-						
+						   ex_out<=mem_add;
 	       when "0101" => --SW
 							s6<="00000000000"& imm_6;
 							s12<=std_logic_vector(to_unsigned(to_integer(unsigned(data_reg2))+(to_integer(unsigned(s6))),bit17'length));
 							mem_add<=s12(15 down to 0);		
-							
+							ex_out<=mem_add;
 							
 			 when "0110" => --lm
 							ex_out<=(others=>'0');
