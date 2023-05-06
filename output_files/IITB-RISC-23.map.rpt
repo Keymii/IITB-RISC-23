@@ -1,5 +1,5 @@
 Analysis & Elaboration report for IITB-RISC-23
-Sat May 06 19:05:25 2023
+Sat May 06 21:12:21 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                   ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status      ; Failed - Sat May 06 19:05:25 2023           ;
+; Analysis & Elaboration Status      ; Failed - Sat May 06 21:12:21 2023           ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; IITB-RISC-23                                ;
 ; Top-level Entity Name              ; uProcessor                                  ;
@@ -164,7 +164,7 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sat May 06 19:05:10 2023
+    Info: Processing started: Sat May 06 21:12:05 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off IITB-RISC-23 -c IITB-RISC-23 --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -218,12 +218,12 @@ Error (10500): VHDL syntax error at uProcessor.vhd(31) near text ")";  expecting
 Error (10500): VHDL syntax error at uProcessor.vhd(37) near text ";";  expecting ":", or "," File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 37
 Error (10396): VHDL syntax error at uProcessor.vhd(49): name used in construct must match previously specified name "subCircuit_IF" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 49
 Error (10500): VHDL syntax error at uProcessor.vhd(51) near text ")";  expecting an identifier, or "constant", or "file", or "signal", or "variable" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 51
-Error (10500): VHDL syntax error at uProcessor.vhd(100) near text ":";  expecting an identifier File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 100
-Error (10500): VHDL syntax error at uProcessor.vhd(109) near text "signal";  expecting ";" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 109
-Error (10500): VHDL syntax error at uProcessor.vhd(120) near text ",";  expecting "(", or an identifier, or  unary operator File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 120
-Error (10500): VHDL syntax error at uProcessor.vhd(142) near text ")";  expecting "(", or an identifier, or  unary operator File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 142
-Error (10500): VHDL syntax error at uProcessor.vhd(183) near text ")";  expecting "(", or an identifier, or  unary operator File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 183
-Error (10500): VHDL syntax error at uProcessor.vhd(227) near text ")";  expecting "(", or an identifier, or  unary operator File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 227
+Error (10500): VHDL syntax error at uProcessor.vhd(102) near text ":";  expecting an identifier File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 102
+Error (10500): VHDL syntax error at uProcessor.vhd(111) near text "signal";  expecting ";" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 111
+Error (10500): VHDL syntax error at uProcessor.vhd(122) near text ",";  expecting "(", or an identifier, or  unary operator File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 122
+Error (10500): VHDL syntax error at uProcessor.vhd(144) near text ")";  expecting "(", or an identifier, or  unary operator File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 144
+Error (10500): VHDL syntax error at uProcessor.vhd(185) near text ")";  expecting "(", or an identifier, or  unary operator File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 185
+Error (10500): VHDL syntax error at uProcessor.vhd(232) near text ")";  expecting "(", or an identifier, or  unary operator File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/uProcessor.vhd Line: 232
 Info (12021): Found 0 design units, including 0 entities, in source file uprocessor.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file subcircuit_if.vhd
     Info (12022): Found design unit 1: subCircuit_IF-a1 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_IF.vhd Line: 16
@@ -231,30 +231,15 @@ Info (12021): Found 2 design units, including 1 entities, in source file subcirc
 Info (12021): Found 2 design units, including 1 entities, in source file subcircuit_id.vhd
     Info (12022): Found design unit 1: subCircuit_ID-a2 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_ID.vhd Line: 24
     Info (12023): Found entity 1: subCircuit_ID File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_ID.vhd Line: 7
-Info (12021): Found 2 design units, including 1 entities, in source file subcircuit_rr.vhd
-    Info (12022): Found design unit 1: subCircuit_RR-a3 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_RR.vhd Line: 17
-    Info (12023): Found entity 1: subCircuit_RR File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_RR.vhd Line: 7
-Error (10500): VHDL syntax error at subCircuit_EX.vhd(289) near text "behav";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_EX.vhd Line: 289
+Error (10500): VHDL syntax error at subCircuit_RR.vhd(24) near text "if";  expecting "end", or "(", or an identifier ("if" is a reserved keyword), or a concurrent statement File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_RR.vhd Line: 24
+Error (10500): VHDL syntax error at subCircuit_RR.vhd(24) near text "then";  expecting "<=" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_RR.vhd Line: 24
+Error (10500): VHDL syntax error at subCircuit_RR.vhd(29) near text "if";  expecting "begin", or a declaration statement File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_RR.vhd Line: 29
+Info (12021): Found 0 design units, including 0 entities, in source file subcircuit_rr.vhd
+Error (10500): VHDL syntax error at subCircuit_EX.vhd(292) near text "behav";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_EX.vhd Line: 292
 Info (12021): Found 0 design units, including 0 entities, in source file subcircuit_ex.vhd
-Error (10500): VHDL syntax error at subCircuit_MA.vhd(26) near text ")";  expecting an identifier, or "constant", or "file", or "signal", or "variable" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 26
-Error (10500): VHDL syntax error at subCircuit_MA.vhd(31) near text "shared";  expecting an identifier ("shared" is a reserved keyword), or "constant", or "file", or "signal", or "variable" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 31
-Error (10500): VHDL syntax error at subCircuit_MA.vhd(32) near text "shared";  expecting an identifier ("shared" is a reserved keyword), or "constant", or "file", or "signal", or "variable" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 32
-Error (10500): VHDL syntax error at subCircuit_MA.vhd(33) near text "shared";  expecting an identifier ("shared" is a reserved keyword), or "constant", or "file", or "signal", or "variable" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 33
-Error (10500): VHDL syntax error at subCircuit_MA.vhd(35) near text "begin";  expecting an identifier ("begin" is a reserved keyword), or "constant", or "file", or "signal", or "variable" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 35
-Error (10500): VHDL syntax error at subCircuit_MA.vhd(40) near text "=";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 40
-Error (10500): VHDL syntax error at subCircuit_MA.vhd(43) near text ":=";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 43
-Error (10500): VHDL syntax error at subCircuit_MA.vhd(45) near text "if";  expecting ";", or an identifier ("if" is a reserved keyword), or "architecture" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 45
-Error (10500): VHDL syntax error at subCircuit_MA.vhd(47) near text "case";  expecting "end", or "(", or an identifier ("case" is a reserved keyword), or a concurrent statement File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 47
-Error (10500): VHDL syntax error at subCircuit_MA.vhd(47) near text "is";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 47
-Error (10500): VHDL syntax error at subCircuit_MA.vhd(53) near text "when";  expecting "end", or "(", or an identifier ("when" is a reserved keyword), or a concurrent statement File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 53
-Error (10500): VHDL syntax error at subCircuit_MA.vhd(58) near text "when";  expecting "end", or "(", or an identifier ("when" is a reserved keyword), or a concurrent statement File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 58
-Error (10500): VHDL syntax error at subCircuit_MA.vhd(59) near text "then";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 59
-Error (10500): VHDL syntax error at subCircuit_MA.vhd(60) near text "=";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 60
-Error (10500): VHDL syntax error at subCircuit_MA.vhd(64) near text ":=";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 64
-Error (10500): VHDL syntax error at subCircuit_MA.vhd(65) near text "if";  expecting ";", or an identifier ("if" is a reserved keyword), or "architecture" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 65
-Error (10500): VHDL syntax error at subCircuit_MA.vhd(69) near text ":=";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 69
-Error (10500): VHDL syntax error at subCircuit_MA.vhd(77) near text "then";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 77
-Error (10500): VHDL syntax error at subCircuit_MA.vhd(94) near text "if";  expecting ";", or an identifier ("if" is a reserved keyword), or "architecture" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 94
+Error (10500): VHDL syntax error at subCircuit_MA.vhd(38) near text "port";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 38
+Error (10500): VHDL syntax error at subCircuit_MA.vhd(38) near text ";";  expecting ":=", or "<=" File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 38
+Error (10500): VHDL syntax error at subCircuit_MA.vhd(89) near text "behav";  expecting "(", or "'", or "." File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_MA.vhd Line: 89
 Info (12021): Found 0 design units, including 0 entities, in source file subcircuit_ma.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file subcircuit_wb.vhd
     Info (12022): Found design unit 1: subCircuit_WB-a5 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/subCircuit_WB.vhd Line: 20
@@ -274,10 +259,10 @@ Info (12021): Found 2 design units, including 1 entities, in source file hazard 
 Info (12021): Found 2 design units, including 1 entities, in source file hazard load.vhd
     Info (12022): Found design unit 1: hazard3-bhv File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/Hazard Load.vhd Line: 14
     Info (12023): Found entity 1: hazard3 File: C:/Users/SHOUNAK DAS/Desktop/EE309_Project/IITB-RISC-23/Hazard Load.vhd Line: 8
-Error: Quartus Prime Analysis & Elaboration was unsuccessful. 35 errors, 2 warnings
-    Error: Peak virtual memory: 4769 megabytes
-    Error: Processing ended: Sat May 06 19:05:25 2023
-    Error: Elapsed time: 00:00:15
-    Error: Total CPU time (on all processors): 00:00:16
+Error: Quartus Prime Analysis & Elaboration was unsuccessful. 22 errors, 2 warnings
+    Error: Peak virtual memory: 4777 megabytes
+    Error: Processing ended: Sat May 06 21:12:21 2023
+    Error: Elapsed time: 00:00:16
+    Error: Total CPU time (on all processors): 00:00:18
 
 

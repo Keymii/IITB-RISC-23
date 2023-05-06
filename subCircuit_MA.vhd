@@ -34,10 +34,11 @@ architecture behav of subCircuit_MA is
 	
 begin
 	ma:process(clk,reset)
-	dataMem : DataMemory port map(addr=>m_addr, din=>data_wr, we=>mem_wr, clk=>clk, dout=>data_rd);
+	begin
+	dataMem : DataMemory port map(addr<=m_addr, din<=data_wr, we<=mem_wr, clk<=clk, dout<=data_rd);
 
 	begin
-		if instr(15 downto 14)="01" 
+		if instr(15 downto 14)="01" then
 			if count = 0 then
 				multi_add:=addr;
 				multi_reg_add:=instr(7 downto 0);
@@ -82,8 +83,7 @@ begin
 					end if;
 					
 			end case;
-			
 		end if;
 	end process;
 		
-end behav;
+end behav;
