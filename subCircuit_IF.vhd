@@ -10,8 +10,7 @@ entity subCircuit_IF is
 		pc_read: in std_logic_vector(15 downto 0);
 		pc_write: out std_logic_vector(15 downto 0);
 		pc_wr:out std_logic;
-		IR: out std_logic_vector(15 downto 0);
-		
+		IR: out std_logic_vector(15 downto 0)
 	);
 end subCircuit_IF;
 architecture a1 of subCircuit_IF is 
@@ -20,11 +19,11 @@ architecture a1 of subCircuit_IF is
 		port (imem_a: in std_logic_vector(15 downto 0); 
 			  clk: in std_logic;
 			  imem_d: out std_logic_vector(15 downto 0));
-	end entity;
+	end component;
 	
 	signal instr:std_logic_vector(15 downto 0);
 begin
-	instructionMem:imem port map(imem_a=>pc_read, clk=>clk, imem_d=>instr)
+	instructionMem:imem port map(imem_a=>pc_read, clk=>clk, imem_d=>instr);
 	IR<=instr;
 	P:process(clk, reset)
 	begin

@@ -7,9 +7,9 @@ use ieee.numeric_std.all;
 entity subCircuit_WB is
  port (
       clk,reset : in std_logic;
-		reg_write: in std_logic
+		reg_write: in std_logic;
 		
-		D3_in : out std_logic_vector(15 downto 0)
+		D3_in : out std_logic_vector(15 downto 0);
 	 reg_write_add: OUT STD_LOGIC_VECTOR(2 downto 0);
     A3 : out std_logic_vector(2 downto 0);
 	 D3_out : out std_logic_vector(15 downto 0)
@@ -22,8 +22,8 @@ begin
  process(clk)
  begin
   if (reg_write=1) then
-  reg_write_add => A3;
-  D3_in=>D3_out;
+  A3 <= reg_write_add;
+  D3_out<=D3_in;
   
  end if;
  
