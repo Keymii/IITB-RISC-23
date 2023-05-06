@@ -79,3 +79,4 @@ set_global_assignment -name VHDL_FILE subCircuit_RR.vhd
 set_global_assignment -name VHDL_FILE subCircuit_EX.vhd
 set_global_assignment -name VHDL_FILE subCircuit_MA.vhd
 set_global_assignment -name VHDL_FILE subCircuit_WB.vhd
+set_global_assignment -name VHDL_FILE DUT.vhd
