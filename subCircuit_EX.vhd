@@ -118,7 +118,13 @@ signal s2,s6,s7,s9,mem_add : std_logic_vector(15 downto 0);
 							s6<="00000000000"& imm_6;
 							s12<=std_logic_vector(to_unsigned(to_integer(unsigned(data_reg2))+(to_integer(unsigned(s6))),bit17'length));
 							mem_add<=s12(15 down to 0);		
-	
+							
+							
+			 when "0110" => --lm
+							NULL;
+			 when "0111" => --sm
+							Null; --basically, we have to update the reading register's address in every cycle
+							
 							
 	       when "1000" => --BEQ
 					if data_reg1=data_reg2 then
