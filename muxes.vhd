@@ -1,7 +1,9 @@
 --mux 2 to 1
-library IEEE;
-use IEEE.STD_LOGIC_1164.all;
- 
+library std;
+library ieee;
+use std.standard.all;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 entity mux_2to1 is
  port(
  
@@ -9,7 +11,7 @@ entity mux_2to1 is
      S0,S1: in STD_LOGIC(15 downto 0);
      Z: out STD_LOGIC(15 downto 0)
   );
-end mux_4to1;
+end mux_2to1;
  
 architecture bhv of mux_2to1 is
 begin
@@ -29,9 +31,11 @@ end bhv;
 
 --mux 2to 1 (3bit)
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.all;
- 
+library std;
+library ieee;
+use std.standard.all;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 entity mux_2to1_3bit is
  port(
  
@@ -39,9 +43,9 @@ entity mux_2to1_3bit is
      S0,S1: in STD_LOGIC(2 downto 0);
      Z: out STD_LOGIC(2 downto 0)
   );
-end mux_4to1;
+end mux_2to1_3bit;
  
-architecture bhv of mux_2to1_3bit is
+architecture bhv1 of mux_2to1_3bit is
 begin
 process (A,B,S0) is
 begin
@@ -53,7 +57,7 @@ begin
   end if;
  
 end process;
-end bhv;
+end bhv1;
 
 
 
@@ -62,9 +66,11 @@ end bhv;
 
 
 --mux 4 to 1--
-library IEEE;
-use IEEE.STD_LOGIC_1164.all;
- 
+library std;
+library ieee;
+use std.standard.all;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 entity mux_4to1 is
  port(
  
@@ -74,7 +80,7 @@ entity mux_4to1 is
   );
 end mux_4to1;
  
-architecture bhv of mux_4to1 is
+architecture bhv2 of mux_4to1 is
 begin
 process (A,B,C,D,S0,S1) is
 begin
@@ -89,7 +95,7 @@ begin
   end if;
  
 end process;
-end bhv;
+end bhv2;
 
 
 
@@ -100,9 +106,11 @@ end bhv;
 
 
 --mux 4 to 1 (1-bit)
-library IEEE;
-use IEEE.STD_LOGIC_1164.all;
- 
+library std;
+library ieee;
+use std.standard.all;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 entity mux_4to1_1bit is
  port(
  
@@ -110,9 +118,9 @@ entity mux_4to1_1bit is
      S0,S1: in STD_LOGIC;
      Z: out STD_LOGIC
   );
-end mux_4to1;
+end mux_4to1_1bit;
  
-architecture bhv of mux_4to1_1bit is
+architecture bhv3 of mux_4to1_1bit is
 begin
 process (A,B,C,D,S0,S1) is
 begin
@@ -127,11 +135,16 @@ begin
   end if;
  
 end process;
-end bhv;
+end bhv3;
 
 
 
 --mux 8 to 1
+library std;
+library ieee;
+use std.standard.all;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 entity mux8to1 is
 port ( s : in std_logic (2 downto 0); 
 A : in std_logic;
@@ -167,12 +180,16 @@ begin
     Z <= H;
 end if;
 
+end process;
 end equation;
 
 
-
 --mux 8 to 1 (3 bit)
-
+library std;
+library ieee;
+use std.standard.all;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 entity mux8to1_3bit is
 port ( s : in std_logic (2 downto 0); 
 A : in std_logic (2 downto 0);
@@ -207,7 +224,7 @@ begin
   else
     Z <= H;
 end if;
-
+end process;
 end equation;
 
 
